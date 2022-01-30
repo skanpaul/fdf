@@ -47,6 +47,16 @@ int	bresenham(t_point start, t_point end, t_data *data, int color)
 }
 
 /* ************************************************************************** */
+static void	init_bresenham(t_bresenham *b, t_point start, t_point end)
+{
+	b->diff_x = abs(end.x - start.x);
+	b->step_x = prepare_step_x(start, end);
+	b->diff_y = -abs(end.y - start.y);
+	b->step_y = prepare_step_y(start, end);
+	b->err = b->diff_x + b->diff_y;
+}
+
+/* ************************************************************************** */
 static int	prepare_step_x(t_point start, t_point end)
 {
 	int	step_x;
@@ -68,14 +78,4 @@ static int	prepare_step_y(t_point start, t_point end)
 	else
 		step_y = -1;
 	return (step_y);
-}
-
-/* ************************************************************************** */
-static void	init_bresenham(t_bresenham *b, t_point start, t_point end)
-{
-	b->diff_x = abs(end.x - start.x);
-	b->step_x = prepare_step_x(start, end);
-	b->diff_y = -abs(end.y - start.y);
-	b->step_y = prepare_step_y(start, end);
-	b->err = b->diff_x + b->diff_y;
 }
