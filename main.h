@@ -35,10 +35,16 @@ int key_press(int key, void *param);
 int	mouse_action(int button,int x,int y,void *param);
 
 
-int bresenham(t_point start, t_point end, t_data *data, int color);
+void init_table (t_p *table, int size_l, int size_c);
+t_p	*trans_decal(t_p *table, int size_l, int size_c, t_p v_decal);
+t_p *trans_deform(t_p *t, int size_l, int size_c, t_p i, t_p j, t_p k);
+t_p *trans_zoom(t_p *table, int size_l, int size_c, t_p factor);
+void	draw (t_p *table, int size_l, int size_c, t_data *data);
+int		bresenham(t_p start, t_p end, t_data *data, int color);
+
 /* ------------------------------------------------------------------------- */
 bool is_screen_overflow(int x, int y);
-void put_pixel_to_img(t_img_data *img, t_point p, int color);
+void put_pixel_to_img(t_img_data *img, t_p p, int color);
 
 
 /* ************************************************************************** */

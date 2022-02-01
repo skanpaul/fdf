@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_pixel_to_img.c                                 :+:      :+:    :+:   */
+/*   trans_zoom.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 15:23:35 by ski               #+#    #+#             */
-/*   Updated: 2022/01/23 15:23:37 by ski              ###   ########.fr       */
+/*   Created: 2022/02/01 17:48:57 by ski               #+#    #+#             */
+/*   Updated: 2022/02/01 17:49:02 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "main.h"
 
 /* ************************************************************************** */
-void	put_pixel_to_img(t_img_data *img, t_p p, int color)
+t_p *trans_zoom(t_p *table, int size_l, int size_c, t_p factor)
 {
-	char	*pixel_addr;
+	int l;
+	int c;
+	t_p *zoom;
 
-	pixel_addr = img->addr + (p.y * img->line_length + p.x * (img->bits_per_pixel / 8));
+	zoom =(t_p *)malloc((size_l * size_c) * sizeof(t_p));
 
-	*(unsigned int*)pixel_addr = color;
+	l = 0;
+	while (l < size_l)
+	{
+		c = 0;
+		while (c < size_c)
+		{
+			zoom[l * size_l + c].x = table[l * size_l + c].x * factor.x;
+			zoom[l * size_l + c].y = table[l * size_l + c].y * factor.y;
+			zoom[l * size_l + c].z = table[l * size_l + c].z * factor.z;
+			c++;
+		}	
+		l++;
+	}
+
+	return (zoom);
 }
+

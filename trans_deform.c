@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_mouse_event.c                                :+:      :+:    :+:   */
+/*   trans_deform.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 12:44:52 by ski               #+#    #+#             */
-/*   Updated: 2022/01/23 12:44:57 by ski              ###   ########.fr       */
+/*   Created: 2022/02/01 17:46:23 by ski               #+#    #+#             */
+/*   Updated: 2022/02/01 17:46:25 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "main.h"
 
 /* ************************************************************************** */
-int	mouse_action(int button,int x,int y,void *param)
+t_p *trans_deform(t_p *t, int size_l, int size_c, t_p i, t_p j, t_p k)
 {
-	t_data *data;
-	static int memory = 0;
-	static t_p origine = {.x = 0, .y = 0};
+	int l;
+	int c;
+	t_p *deform;
 
-	data = (t_data *)param;
+	deform =(t_p *)malloc((size_l * size_c) * sizeof(t_p));
 
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, COLOR_RED, "Sorakann Ki");
-
-
-	if(memory == 0)
+	l = 0;
+	while (l < size_l)
 	{
-		ft_printf("button: %d\nx: %d\ny: %d\n", button, x, y);
-		origine = (t_p){.x = x, .y = y};
-		memory = 1;
-	}
-	else
-	{
-		bresenham(origine, (t_p){.x = x, .y = y},data, COLOR_RED);
-		memory = 0;
+		c = 0;
+		while (c < size_c)
+		{
+			deform[l * size_l + c].x = 
+					t[l * size_l + c].x * i.x
+				+ 	t[l * size_l + c].y * j.x
+				+ 	t[l * size_l + c].z * k.x;
+			deform[l * size_l + c].y = 
+					t[l * size_l + c].x * i.y
+				+ 	t[l * size_l + c].y * j.y
+				+ 	t[l * size_l + c].z * k.y;
+			c++;
+		}	
+		l++;
 	}
 
-	return (0);
+	return (deform);
 }

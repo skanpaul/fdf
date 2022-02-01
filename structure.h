@@ -14,7 +14,7 @@
 
 /* ************************************************************************** */
 typedef struct s_data t_data;
-typedef struct s_point t_point;
+typedef struct s_p t_p;
 typedef struct s_vector t_vector;
 typedef struct s_img_data t_img_data;
 typedef struct s_bresenham t_bresenham;
@@ -26,18 +26,18 @@ typedef struct s_data
 	void *win_ptr;
 } t_data;
 /* -------------------------------------------------------------------------- */
-typedef struct s_point
+typedef struct s_p
 {
 	int x;
 	int y;
 	int z;
-} t_point;
+} t_p;
 
 /* -------------------------------------------------------------------------- */
 typedef struct s_vector
 {
-	t_point start;
-	t_point	end;
+	t_p start;
+	t_p	end;
 } t_vector;
 /* -------------------------------------------------------------------------- */
 typedef struct s_img_data

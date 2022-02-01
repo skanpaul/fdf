@@ -12,12 +12,12 @@
 #include "main.h"
 
 /* ************************************************************************** */
-static int	prepare_step_x(t_point start, t_point end);
-static int	prepare_step_y(t_point start, t_point end);
-static void	init_bresenham(t_bresenham *b, t_point start, t_point end);
+static int	prepare_step_x(t_p start, t_p end);
+static int	prepare_step_y(t_p start, t_p end);
+static void	init_bresenham(t_bresenham *b, t_p start, t_p end);
 
 /* ************************************************************************** */
-int	bresenham(t_point start, t_point end, t_data *data, int color)
+int	bresenham(t_p start, t_p end, t_data *data, int color)
 {
 	t_bresenham	b;
 
@@ -47,7 +47,7 @@ int	bresenham(t_point start, t_point end, t_data *data, int color)
 }
 
 /* ************************************************************************** */
-static void	init_bresenham(t_bresenham *b, t_point start, t_point end)
+static void	init_bresenham(t_bresenham *b, t_p start, t_p end)
 {
 	b->diff_x = abs(end.x - start.x);
 	b->step_x = prepare_step_x(start, end);
@@ -57,7 +57,7 @@ static void	init_bresenham(t_bresenham *b, t_point start, t_point end)
 }
 
 /* ************************************************************************** */
-static int	prepare_step_x(t_point start, t_point end)
+static int	prepare_step_x(t_p start, t_p end)
 {
 	int	step_x;
 
@@ -69,7 +69,7 @@ static int	prepare_step_x(t_point start, t_point end)
 }
 
 /* ************************************************************************** */
-static int	prepare_step_y(t_point start, t_point end)
+static int	prepare_step_y(t_p start, t_p end)
 {
 	int	step_y;
 
