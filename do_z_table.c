@@ -12,7 +12,8 @@
 #include "main.h"
 
 /* ************************************************************************** */
-static int	*add_z_to_table(int z, int *old_z_table, int pos);
+static int	*add_z_to_table(int z, int *old_z_table, int pos_z);
+static int	copy_z_table(int *new_z_table, int *old_z_table, int pos_z);
 
 /* ************************************************************************** */
 int	*do_z_table(t_file *file, t_it *info_table)
@@ -21,7 +22,6 @@ int	*do_z_table(t_file *file, t_it *info_table)
 	char	**split;
 	int		*z_table;
 	int		pos_z;
-	int		z;
 	int		i;
 
 	z_table = NULL;
@@ -37,8 +37,7 @@ int	*do_z_table(t_file *file, t_it *info_table)
 		i = 0;
 		while (i < info_table->max_c)
 		{
-			z = ft_atoi(split[i]);
-			z_table = add_z_to_table(z, z_table, pos_z);
+			z_table = add_z_to_table(ft_atoi(split[i]), z_table, pos_z);
 			i++;
 			pos_z++;
 		}
@@ -47,32 +46,41 @@ int	*do_z_table(t_file *file, t_it *info_table)
 }
 
 /* ************************************************************************** */
-static int *add_z_to_table(int z, int *old_z_table, int pos)
+static int	*add_z_to_table(int z, int *old_z_table, int pos_z)
 {
 	int	*new_z_table;
 	int	i;
 
 	new_z_table = NULL;
-	if (pos == 0)
+	if (pos_z == 0)
 	{
 		new_z_table = (int *)malloc(1 * sizeof(int));
 		if (!new_z_table)
 			return (NULL);
-		new_z_table[pos] = z;
+		new_z_table[pos_z] = z;
 	}
 	else
 	{
-		new_z_table = (int *)malloc((pos + 1) * sizeof(int));
+		new_z_table = (int *)malloc((pos_z + 1) * sizeof(int));
 		if (!new_z_table)
 			return (NULL);
-		i = 0;
-		while (i < pos)
-		{
-			new_z_table[i] = old_z_table[i];
-			i++;
-		}
+		i = copy_z_table(new_z_table, old_z_table, pos_z);
 		new_z_table[i] = z;
 		free (old_z_table);
 	}
 	return (new_z_table);
+}
+
+/* ************************************************************************** */
+static int	copy_z_table(int *new_z_table, int *old_z_table, int pos_z)
+{
+	int	i;
+
+	i = 0;
+	while (i < pos_z)
+	{
+		new_z_table[i] = old_z_table[i];
+		i++;
+	}
+	return (i);
 }

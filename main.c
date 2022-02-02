@@ -16,19 +16,19 @@
 int main(void)
 {
 	t_data	data;
-	t_file	file;
-	t_p		*table_point;
-	t_it	info_table;
+	// t_file	file;
+	// t_p		*table_point;
+	// t_it	info_table;
 
-	file.name = "test";
+	// file.name = "test";
 
 	// if (argc != 2)
 	// 	return (-1);
 	// file.name = argv[1];
 
-	table_point = get_data_from_file(&file, &info_table);
-	if (table_point == NULL)
-		return (0);
+	// table_point = get_data_from_file(&file, &info_table);
+	// if (table_point == NULL)
+	// 	return (0);
 
 	/* INITIALISATION serveur -------------------------------------------- */
 	if (init_mlx(&data) == MLX_ERROR)

@@ -17,11 +17,12 @@
 /* ************************************************************************** */
 t_p *get_data_from_file(t_file *file, t_it *info_table)
 {
-	t_p		*table_point;
 	int		*z_table;
+	t_p		*xyz_table;
 	
 	/* ------------------------------------------------------------------- */
-	table_point = NULL;
+	z_table = NULL;
+	xyz_table = NULL;
 	/* ------------------------------------------------------------------- */
 	file->fd = open(file->name, O_RDONLY);
 	if (file->fd == -1)
@@ -31,9 +32,11 @@ t_p *get_data_from_file(t_file *file, t_it *info_table)
 	info_table->max_c = 0;
 	/* ------------------------------------------------------------------- */
 	z_table = do_z_table(file, info_table);
+	xyz_table = do_xyz_table(info_table, z_table);
 	
+	if(z_table)
+		free(z_table);	
 	/* ------------------------------------------------------------------- */
 	close(file->fd);
-	return (table_point);
+	return (xyz_table);
 }
-
