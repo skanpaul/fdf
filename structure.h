@@ -13,26 +13,50 @@
 # define STRUCTURE_H
 
 /* ************************************************************************** */
-typedef struct s_data t_data;
-typedef struct s_p t_p;
-typedef struct s_vector t_vector;
-typedef struct s_img_data t_img_data;
-typedef struct s_bresenham t_bresenham;
-
+typedef struct s_data		t_data;
+typedef struct s_file		t_file;
+typedef struct s_it			t_it;
+typedef struct s_p			t_p;
+typedef struct s_bresenham	t_bresenham;
+typedef struct s_vector		t_vector;
+typedef struct s_img_data	t_img_data;
 /* ************************************************************************** */
+typedef struct s_it
+{
+	int		max_c;
+	int		max_l;
+} t_it;
+/* -------------------------------------------------------------------------- */
+typedef struct s_file
+{
+	char	*name;
+	int		fd;
+} t_file;
+/* -------------------------------------------------------------------------- */
 typedef struct s_data
 {
-	void *mlx_ptr;
-	void *win_ptr;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_file	file;
+	t_it	info_table;
 } t_data;
 /* -------------------------------------------------------------------------- */
 typedef struct s_p
 {
-	int x;
-	int y;
-	int z;
+	int	x;
+	int	y;
+	int	z;
 } t_p;
-
+/* -------------------------------------------------------------------------- */
+typedef struct s_bresenham 
+{
+	int	diff_x;
+	int	diff_y;
+	int	step_x;
+	int	step_y;
+	int	err;
+	int	e2;	
+} t_bresenham;
 /* -------------------------------------------------------------------------- */
 typedef struct s_vector
 {
@@ -49,15 +73,5 @@ typedef struct s_img_data
 	int *endian;
 	
 } t_img_data;
-/* -------------------------------------------------------------------------- */
-typedef struct s_bresenham 
-{
-	int	diff_x;
-	int	diff_y;
-	int	step_x;
-	int	step_y;
-	int	err;
-	int	e2;	
-} t_bresenham;
 /* ************************************************************************** */
 #endif

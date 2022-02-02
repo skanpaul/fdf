@@ -10,42 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
-#define FDF_H
+# define FDF_H
 /* ************************************************************************** */
-#include "minilibx_macos/mlx.h"
-#include "structure.h"
-#include "libft.h"
-#include "config.h"
-#include "X.h"
-#include <math.h>
-#include <stdio.h>
-#include <stdbool.h>
+# include "minilibx_macos/mlx.h"
+# include "structure.h"
+# include "libft.h"
+# include "config.h"
+# include "X.h"
+# include <math.h>
+# include <stdio.h>
+# include <stdbool.h>
+# include <fcntl.h>
+# include <stdbool.h>
 /* ************************************************************************** */
-#define W_HEIGHT 600
-#define W_WIDTH 1200
-#define W_TITLE "La fenetre a Sorakann"
-#define MLX_ERROR 1
-#define SCREEN_OVERFLOW 1
-#define NO_SCREEN_OVERFLOW 0
+# define W_HEIGHT 600
+# define W_WIDTH 1000
+# define W_TITLE "La fenetre a Sorakann"
+# define MLX_ERROR 1
+# define SCREEN_OVERFLOW 1
+# define NO_SCREEN_OVERFLOW 0
 /* ************************************************************************** */
-int initialisation (t_data *data);
-void draw_grid(int size, t_data *data, int color);
-
-int key_press(int key, void *param);
-int	mouse_action(int button,int x,int y,void *param);
-
-
-void init_table (t_p *table, int size_l, int size_c);
-t_p	*trans_decal(t_p *table, int size_l, int size_c, t_p v_decal);
-t_p *trans_deform(t_p *t, int size_l, int size_c, t_p i, t_p j, t_p k);
-t_p *trans_zoom(t_p *table, int size_l, int size_c, t_p factor);
-void	draw (t_p *table, int size_l, int size_c, t_data *data);
-int		bresenham(t_p start, t_p end, t_data *data, int color);
+int		init_mlx (t_data *data);
 
 /* ------------------------------------------------------------------------- */
-bool is_screen_overflow(int x, int y);
-void put_pixel_to_img(t_img_data *img, t_p p, int color);
-
-
+t_p		*get_data_from_file(t_file *file, t_it *info_table);
+int		*do_z_table(t_file *file, t_it *info_table);
+/* ------------------------------------------------------------------------- */
+int		action_key(int key, void *param);
+int		action_mouse(int button,int x,int y,void *param);
+/* ------------------------------------------------------------------------- */
+int		bresenham(t_p start, t_p end, t_data *data, int color);
+void	put_pixel_to_img(t_img_data *img, t_p p, int color);
+/* ------------------------------------------------------------------------- */
+void	draw_grid(int size, t_data *data, int color);
+void	draw (t_p *table, int size_l, int size_c, t_data *data);
+/* ------------------------------------------------------------------------- */
+void	init_table (t_p *table, int size_l, int size_c);
+bool	is_screen_overflow(int x, int y);
+/* ------------------------------------------------------------------------- */
+t_p		*trans_decal(t_p *table, int size_l, int size_c, t_p v_decal);
+t_p		*trans_deform(t_p *t, int size_l, int size_c, t_p i, t_p j, t_p k);
+t_p		*trans_zoom(t_p *table, int size_l, int size_c, t_p factor);
+// t_p		*trans_rot(...);
 /* ************************************************************************** */
 #endif

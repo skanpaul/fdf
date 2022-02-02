@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_mouse_event.c                                :+:      :+:    :+:   */
+/*   action_mouse.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int	mouse_action(int button,int x,int y,void *param)
+int	action_mouse(int button,int x,int y,void *param)
 {
 	t_data *data;
 	static int memory = 0;

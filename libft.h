@@ -13,7 +13,7 @@
 # define LIBFT_H
 /* ************************************************************************** */
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 4096
 # endif
 /* ************************************************************************** */
 # include <stdlib.h>
@@ -99,6 +99,9 @@ size_t	ft_printf_fd_xlow(int n, int fd);		// add: 19.01.2022
 size_t	ft_printf_fd_xup(int n, int fd);		// add: 19.01.2022
 /* ---- GET_NEXT_LINE() ------------------------------------------------ */
 char	*get_next_line(int fd);
+
+/* ---- NOUVELLE FONCTION POUR FDF ------------------------------------- */
+int ft_split_count(char **table_str);
 
 /* ************************************************************************** */
 /* int		ft_isspace(int c); */

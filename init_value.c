@@ -52,3 +52,5 @@ void init_table(t_p *table, int size_l, int size_c)
 
 	return ;
 }
+
+

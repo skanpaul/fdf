@@ -12,7 +12,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int initialisation (t_data *data)
+int init_mlx(t_data *data)
 {
 	/* Create mlx SERVER ------------------------------------------------- */
 	data->mlx_ptr = mlx_init();
