@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_xyz_table.c                                     :+:      :+:    :+:   */
+/*   do_xyz_table.x                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,31 +14,31 @@
 /* ************************************************************************** */
 t_p	*do_xyz_table(t_it *info_table, int *z_table)
 {
-	t_p	*xyz_table;
+	t_p	*xyz;
 	int	max_l;
 	int	max_c;
-	int	l;
-	int	c;
+	int	y;
+	int	x;
 	int z;
 
 	max_l = info_table->max_l;
 	max_c = info_table->max_c;
-	l = 0;
-	c = 0;
+	y = 0;
+	x = 0;
 
-	xyz_table = (t_p *)malloc((max_l * max_c) * sizeof(t_p));
-	l = 0;
-	while (l < max_l)
+	xyz = (t_p *)malloc((max_l * max_c) * sizeof(t_p));
+	y = 0;
+	while (y < max_l)
 	{
-		c = 0;
-		while (c < max_c)
+		x = 0;
+		while (x < max_c)
 		{
-			z = z_table[l * max_l + c];
-			xyz_table[l * max_l + c]
-				= (t_p){.x = c, .y = l, .z = z};
-			c++;
+			z = z_table[x + y * max_c];
+			xyz[x + y * max_c]
+				= (t_p){.x = x, .y = y, .z = z};
+			x++;
 		}	
-		l++;
+		y++;
 	}
-	return (xyz_table);
+	return (xyz);
 }

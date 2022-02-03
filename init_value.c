@@ -12,7 +12,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void init_table(t_p *xyz, int size_y, int size_x)
+void init_table(t_p *xyz, int size_y, int max_c)
 {
 	int y; //y
 	int x; //x
@@ -20,24 +20,30 @@ void init_table(t_p *xyz, int size_y, int size_x)
 
 	/* -------------------------------------------- */
 	y = 0;	
-	x = 0;	xyz[x + y * size_x] = (t_p){x, y, z};
-	x = 1;	xyz[x + y * size_x] = (t_p){x, y, z};
-	x = 2;	xyz[x + y * size_x] = (t_p){x, y, z};
-	// x = 3;	xyz[x + y * size_y] = (t_p){x, y, z};
+	x = 0;	xyz[x + y * max_c] = (t_p){x, y, z};
+	x = 1;	xyz[x + y * max_c] = (t_p){x, y, z};
+	// x = 2;	xyz[x + y * max_c] = (t_p){x, y, z};
+	// x = 3;	xyz[x + y * max_c] = (t_p){x, y, z};
 	/* -------------------------------------------- */
 	y = 1;	
-	x = 0;	xyz[x + y * size_x] = (t_p){x, y, z};
-	x = 1;	xyz[x + y * size_x] = (t_p){x, y, z};
-	x = 2;	xyz[x + y * size_x] = (t_p){x, y, z};
-	// x = 3;	xyz[x + y * size_x] = (t_p){x, y, z};
+	x = 0;	xyz[x + y * max_c] = (t_p){x, y, z};
+	x = 1;	xyz[x + y * max_c] = (t_p){x, y, z};
+	// x = 2;	xyz[x + y * max_c] = (t_p){x, y, z};
+	// x = 3;	xyz[x + y * max_c] = (t_p){x, y, z};
 	/* -------------------------------------------- */
-	// y = 2;	
-	// x = 0;	xyz[x + y * size_x] = (t_p){x, y, z};
-	// x = 1;	xyz[x + y * size_x] = (t_p){x, y, z};
-	// x = 2;	xyz[x + y * size_x] = (t_p){x, y, z};
-	// x = 3;	xyz[x + y * size_x] = (t_p){x, y, z};
+	y = 2;	
+	x = 0;	xyz[x + y * max_c] = (t_p){x, y, z};
+	x = 1;	xyz[x + y * max_c] = (t_p){x, y, z};
+	// x = 2;	xyz[x + y * max_c] = (t_p){x, y, z};
+	// x = 3;	xyz[x + y * max_c] = (t_p){x, y, z};
 	/* -------------------------------------------- */
-	x = size_x;
+	y = 3;	
+	x = 0;	xyz[x + y * max_c] = (t_p){x, y, z};
+	x = 1;	xyz[x + y * max_c] = (t_p){x, y, z};
+	// x = 2;	xyz[x + y * max_c] = (t_p){x, y, z};
+	// x = 3;	xyz[x + y * max_c] = (t_p){x, y, z};
+	/* -------------------------------------------- */
+	x = max_c;
 
 	return ;
 }

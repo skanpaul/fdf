@@ -51,16 +51,16 @@ int action_key(int key, void *param)
 	if (key == KEY_D)
 	{
 		/* MANUEL ---------------------------------------------- */
-		max_l = 2; // LIGNE
-		max_c = 3; // COLONNE
-		xyz = (t_p *)malloc((max_l * max_c) * sizeof(t_p));
-		init_table(xyz, max_l, max_c);
+		// max_l = 4; // LIGNE
+		// max_c = 2; // COLONNE
+		// xyz = (t_p *)malloc((max_l * max_c) * sizeof(t_p));
+		// init_table(xyz, max_l, max_c);
 		/* AUTOMATIQUE ----------------------------------------- */
-		// xyz = get_data_from_file(&file, &info_table);
-		// if (xyz == NULL)
-		// 	return (0);
-		// max_c = info_table.max_c;
-		// max_l = info_table.max_l;
+		xyz = get_data_from_file(&file, &info_table);
+		if (xyz == NULL)
+			return (0);
+		max_c = info_table.max_c;
+		max_l = info_table.max_l;
 		/* ----------------------------------------------------- */
 		zoom = trans_zoom(xyz, max_l, max_c, factor);
 		deform = trans_deform(zoom, max_l, max_c, v_i, v_j, v_k);
