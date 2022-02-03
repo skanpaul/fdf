@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trans_zoom.c                                       :+:      :+:    :+:   */
+/*   trans_zoom.x                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,28 +12,29 @@
 #include "main.h"
 
 /* ************************************************************************** */
-t_p *trans_zoom(t_p *table, int size_l, int size_c, t_p factor)
+t_p *trans_zoom(t_p *input, int max_l, int max_c, t_p factor)
 {
-	int l;
-	int c;
-	t_p *zoom;
+	int y;
+	int x;
+	t_p *output;
 
-	zoom =(t_p *)malloc((size_l * size_c) * sizeof(t_p));
+	output =(t_p *)malloc((max_l * max_c) * sizeof(t_p));
 
-	l = 0;
-	while (l < size_l)
+	y = 0;
+	while (y < max_l)
 	{
-		c = 0;
-		while (c < size_c)
+		x = 0;
+		while (x < max_c)
 		{
-			zoom[l * size_l + c].x = table[l * size_l + c].x * factor.x;
-			zoom[l * size_l + c].y = table[l * size_l + c].y * factor.y;
-			zoom[l * size_l + c].z = table[l * size_l + c].z * factor.z;
-			c++;
+			output[x + y * max_c].x = input[x + y * max_c].x * factor.x;
+			output[x + y * max_c].y = input[x + y * max_c].y * factor.y;
+			output[x + y * max_c].z = input[x + y * max_c].z * factor.z;
+			x++;
 		}	
-		l++;
+		y++;
 	}
+	
 
-	return (zoom);
+	return (output);
 }
 

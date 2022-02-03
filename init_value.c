@@ -12,43 +12,32 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void init_table(t_p *table, int size_l, int size_c)
+void init_table(t_p *xyz, int size_y, int size_x)
 {
-	int l;
-	int c;
+	int y; //y
+	int x; //x
 	int z = 0;
 
-	l = 0;
-	c = 0;
-	table[l * size_l + c] = (t_p){0, 0, z};
-	l = 0;
-	c = 1;
-	table[l * size_l + c] = (t_p){0, 1, z};
-	l = 0;
-	c = 2;
-	table[l * size_l + c] = (t_p){0, 2, z};
-
-	l = 1;
-	c = 0;
-	table[l * size_l + c] = (t_p){1, 0, z};
-	l = 1;
-	c = 1;
-	table[l * size_l + c] = (t_p){1, 1, 1};
-	l = 1;
-	c = 2;
-	table[l * size_l + c] = (t_p){1, 2, z};
-
-	l = 2;
-	c = 0;
-	table[l * size_l + c] = (t_p){2, 0, z};
-	l = 2;
-	c = 1;
-	table[l * size_l + c] = (t_p){2, 1, z};
-	l = 2;
-	c = 2;
-	table[l * size_l + c] = (t_p){2, 2, z};
-
-	c = size_c;
+	/* -------------------------------------------- */
+	y = 0;	
+	x = 0;	xyz[x + y * size_x] = (t_p){x, y, z};
+	x = 1;	xyz[x + y * size_x] = (t_p){x, y, z};
+	x = 2;	xyz[x + y * size_x] = (t_p){x, y, z};
+	// x = 3;	xyz[x + y * size_y] = (t_p){x, y, z};
+	/* -------------------------------------------- */
+	y = 1;	
+	x = 0;	xyz[x + y * size_x] = (t_p){x, y, z};
+	x = 1;	xyz[x + y * size_x] = (t_p){x, y, z};
+	x = 2;	xyz[x + y * size_x] = (t_p){x, y, z};
+	// x = 3;	xyz[x + y * size_x] = (t_p){x, y, z};
+	/* -------------------------------------------- */
+	// y = 2;	
+	// x = 0;	xyz[x + y * size_x] = (t_p){x, y, z};
+	// x = 1;	xyz[x + y * size_x] = (t_p){x, y, z};
+	// x = 2;	xyz[x + y * size_x] = (t_p){x, y, z};
+	// x = 3;	xyz[x + y * size_x] = (t_p){x, y, z};
+	/* -------------------------------------------- */
+	x = size_x;
 
 	return ;
 }

@@ -11,6 +11,8 @@
 # **************************************************************************** #
 NAME	= fdf
 
+POINTFILE = "test"
+
 CC		= gcc
 # CFLAGS	= -Wall -Wextra -Werror
 CFLAGS	= 

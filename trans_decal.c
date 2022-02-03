@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trans_decal.c                                      :+:      :+:    :+:   */
+/*   trans_decal.x                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,40 +12,40 @@
 #include "main.h"
 
 /* ************************************************************************** */
-t_p *trans_decal(t_p *table, int size_l, int size_c, t_p v_decal)
+t_p *trans_decal(t_p *input, int max_l, int max_c, t_p v_decal)
 {
-	int l;
-	int c;
-	t_p *decal;
+	int y;
+	int x;
+	t_p *output;
 
-	decal =(t_p *)malloc((size_l * size_c) * sizeof(t_p));
+	output =(t_p *)malloc((max_l * max_c) * sizeof(t_p));
 
-	l = 0;
-	while (l < size_l)
+	y = 0;
+	while (y < max_l)
 	{
-		c = 0;
-		while (c < size_c)
+		x = 0;
+		while (x < max_c)
 		{
-			decal[l * size_l + c].x = table[l * size_l + c].x + v_decal.x;
-			decal[l * size_l + c].y = table[l * size_l + c].y + v_decal.y;
-			c++;
+			output[x + y * max_c].x = input[x + y * max_c].x + v_decal.x;
+			output[x + y * max_c].y = input[x + y * max_c].y + v_decal.y;
+			x++;
 		}	
-		l++;
+		y++;
 	}
 
-	return (decal);
+	return (output);
 }
 
 /* ************************************************************************** */
 	// line = 0; col = 0;
-	// table_2[line][col] = (t_p){	.x = table[line][col].x + v_decal.x, 
-	// 								.y = table[line][col].y + v_decal.y};
+	// table_2[line][col] = (t_p){	.x = input[line][col].x + v_decal.x, 
+	// 								.y = input[line][col].y + v_decal.y};
 	// line = 0; col = 1;
-	// table_2[line][col] = (t_p){	.x = table[line][col].x + v_decal.x, 
-	// 								.y = table[line][col].y + v_decal.y};
+	// table_2[line][col] = (t_p){	.x = input[line][col].x + v_decal.x, 
+	// 								.y = input[line][col].y + v_decal.y};
 	// line = 1; col = 0;
-	// table_2[line][col] = (t_p){	.x = table[line][col].x + v_decal.x, 
-	// 								.y = table[line][col].y + v_decal.y};
+	// table_2[line][col] = (t_p){	.x = input[line][col].x + v_decal.x, 
+	// 								.y = input[line][col].y + v_decal.y};
 	// line = 1; col = 1;
-	// table_2[line][col] = (t_p){	.x = table[line][col].x + v_decal.x, 
-	// 								.y = table[line][col].y + v_decal.y};
+	// table_2[line][col] = (t_p){	.x = input[line][col].x + v_decal.x, 
+	// 								.y = input[line][col].y + v_decal.y};

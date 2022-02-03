@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   draw.x                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,34 +12,34 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void draw (t_p *xyz_table, int size_l, int size_c, t_data *data)
+void draw (t_p *xyz_table, int max_l, int max_c, t_data *data)
 {
-	int l;
-	int c;
+	int y;
+	int x;
 	t_p start;
 	t_p p_droite;
 	t_p p_bas;
 
-	l = 0;
-	while(l < size_l)
+	y = 0;
+	while(y < max_l)
 	{
-		c = 0;
-		while (c < size_c)
+		x = 0;
+		while (x < max_c)
 		{
-			start = xyz_table[l * size_l + c];
-			if(c != (size_c - 1))
+			start = xyz_table[x + y * max_c];
+			if(x != (max_c - 1))
 			{
-				p_droite = xyz_table[l * size_l + c + 1];
+				p_droite = xyz_table[(x + 1) + y * max_c];
 				bresenham(start, p_droite, data, COLOR_RED);
 			}
-			if(l < (size_l - 1))
+			if(y < (max_l - 1))
 			{
-				p_bas = xyz_table[(l + 1) * size_l + c];
+				p_bas = xyz_table[x + (y + 1) * max_c];
 				bresenham(start, p_bas, data, COLOR_RED);
 			}		
-			c++;
+			x++;
 		}
-		l++;
+		y++;
 	}	
 	return ;
 }
@@ -50,18 +50,18 @@ void draw (t_p *xyz_table, int size_l, int size_c, t_data *data)
 	// bresenham(table_2[1][1], table_2[0][1], data, COLOR_RED);
 
 
-	// l = 0; c = 0;	start = xyz_table[l * size_l + c];
-	// l = 0; c = 1;	end = xyz_table[l * size_l + c];
+	// y = 0; x = 0;	start = xyz_table[x + y * max_c];
+	// y = 0; x = 1;	end = xyz_table[x + y * max_c];
 	// bresenham(start, end, data, COLOR_RED);
 	
-	// l = 0; c = 0;	start = xyz_table[l * size_l + c];
-	// l = 1; c = 0;	end = xyz_table[l * size_l + c];
+	// y = 0; x = 0;	start = xyz_table[x + y * max_c];
+	// y = 1; x = 0;	end = xyz_table[x + y * max_c];
 	// bresenham(start, end, data, COLOR_RED);
 	
-	// l = 1; c = 0;	start = xyz_table[l * size_l + c];
-	// l = 1; c = 1;	end = xyz_table[l * size_l + c];
+	// y = 1; x = 0;	start = xyz_table[x + y * max_c];
+	// y = 1; x = 1;	end = xyz_table[x + y * max_c];
 	// bresenham(start, end, data, COLOR_RED);
 	
-	// l = 0; c = 1;	start = xyz_table[l * size_l + c];
-	// l = 1; c = 1;	end = xyz_table[l * size_l + c];
+	// y = 0; x = 1;	start = xyz_table[x + y * max_c];
+	// y = 1; x = 1;	end = xyz_table[x + y * max_c];
 	// bresenham(start, end, data, COLOR_RED);

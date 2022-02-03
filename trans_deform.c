@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trans_deform.c                                     :+:      :+:    :+:   */
+/*   trans_deform.x                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,32 +12,32 @@
 #include "main.h"
 
 /* ************************************************************************** */
-t_p *trans_deform(t_p *t, int size_l, int size_c, t_p i, t_p j, t_p k)
+t_p *trans_deform(t_p *input, int max_l, int max_c, t_p i, t_p j, t_p k)
 {
-	int l;
-	int c;
-	t_p *deform;
+	int y;
+	int x;
+	t_p *output;
 
-	deform =(t_p *)malloc((size_l * size_c) * sizeof(t_p));
+	output =(t_p *)malloc((max_l * max_c) * sizeof(t_p));
 
-	l = 0;
-	while (l < size_l)
+	y = 0;
+	while (y < max_l)
 	{
-		c = 0;
-		while (c < size_c)
+		x = 0;
+		while (x < max_c)
 		{
-			deform[l * size_l + c].x = 
-					t[l * size_l + c].x * i.x
-				+ 	t[l * size_l + c].y * j.x
-				+ 	t[l * size_l + c].z * k.x;
-			deform[l * size_l + c].y = 
-					t[l * size_l + c].x * i.y
-				+ 	t[l * size_l + c].y * j.y
-				+ 	t[l * size_l + c].z * k.y;
-			c++;
+			output[x + y * max_c].x = 
+					input[x + y * max_c].x * i.x
+				+ 	input[x + y * max_c].y * j.x
+				+ 	input[x + y * max_c].z * k.x;
+			output[x + y * max_c].y = 
+					input[x + y * max_c].x * i.y
+				+ 	input[x + y * max_c].y * j.y
+				+ 	input[x + y * max_c].z * k.y;
+			x++;
 		}	
-		l++;
+		y++;
 	}
 
-	return (deform);
+	return (output);
 }

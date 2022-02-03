@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_mouse.c                                :+:      :+:    :+:   */
+/*   is_screen_overflow.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 12:44:52 by ski               #+#    #+#             */
-/*   Updated: 2022/01/23 12:44:57 by ski              ###   ########.fr       */
+/*   Created: 2022/02/03 09:08:43 by ski               #+#    #+#             */
+/*   Updated: 2022/02/03 09:08:44 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "main.h"
 
 /* ************************************************************************** */
-int	action_mouse(int button,int x,int y,void *param)
+bool is_screen_overflow(int x, int y)
 {
-	t_data *data;
-	static int memory = 0;
-	static t_p origine = {.x = 0, .y = 0};
+	if (x > W_WIDTH)
+		return (true);
 
-	data = (t_data *)param;
+	if (y > W_HEIGHT)
+		return (true);
 
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, COLOR_RED, "Sorakann Ki");
-
-
-	if(memory == 0)
-	{
-		ft_printf("button: %d\t x: %d\ty: %d\n", button, x, y);
-		origine = (t_p){.x = x, .y = y};
-		memory = 1;
-	}
-	else
-	{
-		bresenham(origine, (t_p){.x = x, .y = y},data, COLOR_RED);
-		memory = 0;
-	}
-
-	return (0);
+	return (false);
 }
