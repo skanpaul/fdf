@@ -17,6 +17,7 @@
 #define COLOR_GREEN		0x0000FF00
 #define COLOR_BLUE		0x000000FF
 #define COLOR_WHITE		0x00FFFFFF
+#define COLOR_BLACK		0x00000000
 #define COLOR_YELLOW	0x00FFFF00
 
 /* -------------------------------------------------------------------------- */

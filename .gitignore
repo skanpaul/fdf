@@ -2,4 +2,5 @@
 man_macos/
 *.o
 minilibx_macos/
-main.dSYM/	
+*.dSYM
+test_maps

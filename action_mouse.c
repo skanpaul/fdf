@@ -34,6 +34,6 @@ int	action_mouse(int button,int x,int y,void *param)
 		bresenham(origine, (t_p){.x = x, .y = y},data, COLOR_RED);
 		memory = 0;
 	}
-
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img->ptr, 0, 0);
 	return (0);
 }

@@ -26,9 +26,10 @@ int action_key(int key, void *param)
 	int y_decal = 100;
 	t_p v_decal = {	.x = x_decal, 	.y = y_decal};
 	/* vecteur ZOOM ---------------------------------------- */
-	int x_fact = 20;
-	int y_fact = 20;
-	int z_fact = 10;
+	int fac = 4;
+	int x_fact = 1 * fac;
+	int y_fact = 1 * fac;
+	int z_fact = 1 * fac;
 	t_p factor = {.x = x_fact, .y = y_fact, .z = z_fact};
 	/* TABLE ----------------------------------------------- */
 	t_p *xyz = NULL;
@@ -44,7 +45,31 @@ int action_key(int key, void *param)
 	/* ----------------------------------------------------- */
 	t_file	file;
 	t_it	info_table;
-	file.name = "texte";
+
+	// file.name = "test_maps/texte";
+	// file.name = "test_maps/10-2.fdf";
+
+	// file.name = "test_maps/elem-fract.fdf";
+	// file.name = "test_maps/pylone.fdf";
+	// file.name = "test_maps/10-70.fdf";
+	// file.name = "test_maps/elem.fdf";
+	// file.name = "test_maps/pyra.fdf";
+	// file.name = "test_maps/100-6.fdf";
+	// file.name = "test_maps/elem2.fdf";
+	// file.name = "test_maps/pyramide.fdf";
+	// file.name = "test_maps/20-60.fdf";
+	// file.name = "test_maps/julia.fdf";
+	// file.name = "test_maps/t1.fdf";
+	// file.name = "test_maps/42.fdf";
+	// file.name = "test_maps/mars.fdf";
+	// file.name = "test_maps/t2.fdf";
+	// file.name = "test_maps/50-4.fdf";
+	// file.name = "test_maps/pentenegpos.fdf";
+	// file.name = "test_maps/basictest.fdf";
+
+	// file.name = "test_maps/plat.fdf";
+	// file.name = "test_maps/elem-col.fdf";
+	// file.name = "test_maps/pnp_flat.fdf";
 
 
 	/* ----------------------------------------------------- */
@@ -69,10 +94,23 @@ int action_key(int key, void *param)
 		free_malloc(xyz, zoom, deform, decal);
 	}
 	/* ----------------------------------------------------- */
+	if (key == KEY_S)
+	{
+		printf("S appuyé\n");
+		draw_square(data, 0x00FFFF00);
+	}
+	/* ----------------------------------------------------- */
+	if (key == KEY_G)
+	{
+		printf("G appuyé\n");
+		draw_grid(100, data, COLOR_BLUE);
+	}
+	/* ----------------------------------------------------- */
 	if (key == KEY_C)
 	{
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		draw_grid(100, data, COLOR_BLUE);		
+		printf("C appuyé\n");
+		// mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		draw_clean(data);
 		free_malloc(xyz, zoom, deform, decal);
 	}
 	/* ----------------------------------------------------- */

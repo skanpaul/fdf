@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 // #ifndef STRUCTURE_H
 // # define STRUCTURE_H
-
 /* ************************************************************************** */
 typedef struct s_data		t_data;
 typedef struct s_file		t_file;
@@ -19,7 +18,7 @@ typedef struct s_it			t_it;
 typedef struct s_p			t_p;
 typedef struct s_bresenham	t_bresenham;
 typedef struct s_vector		t_vector;
-typedef struct s_img_data	t_img_data;
+typedef struct s_img		t_img;
 /* ************************************************************************** */
 typedef struct s_it
 {
@@ -39,6 +38,7 @@ typedef struct s_data
 	void	*win_ptr;
 	t_file	file;
 	t_it	info_table;
+	t_img	*img;
 } t_data;
 /* -------------------------------------------------------------------------- */
 typedef struct s_p
@@ -64,14 +64,14 @@ typedef struct s_vector
 	t_p	end;
 } t_vector;
 /* -------------------------------------------------------------------------- */
-typedef struct s_img_data
+typedef struct s_img
 {
+	void *ptr;		// ou ID
 	char *addr;
-	void *img;
-	int line_length; // BYTE
-	int bits_per_pixel;
-	int *endian;
-	
-} t_img_data;
+	int size_line;	// BYTE
+	int bpp; // bits_per_pixel souvent = 32
+	int endian;	
+} t_img;
 /* ************************************************************************** */
 // #endif
+

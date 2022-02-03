@@ -41,6 +41,7 @@ void draw (t_p *xyz_table, int max_l, int max_c, t_data *data)
 		}
 		y++;
 	}	
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img->ptr, 0, 0);
 	return ;
 }
 /* ************************************************************************** */

@@ -1,52 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_grid.c                                        :+:      :+:    :+:   */
+/*   draw_clean.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 09:07:13 by ski               #+#    #+#             */
-/*   Updated: 2022/02/03 09:07:15 by ski              ###   ########.fr       */
+/*   Created: 2022/02/03 16:47:29 by ski               #+#    #+#             */
+/*   Updated: 2022/02/03 16:47:31 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "main.h"
 
 /* ************************************************************************** */
-void draw_grid(int size, t_data *data, int color)
+void draw_clean(t_data *data)
 {
 	t_img *img;
+	int color;
 	int x;
 	int y;
-	
-	img = data->img;
-	x = size;
-	y = 0;
-	while (x < W_WIDTH)
-	{
-		while (y < W_HEIGHT)
-		{
-			// mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
-			put_pixel_to_img(img, x, y, color);
-			
-			y++;
-		}
-		y = 0;
-		x += size;
-	}
 
-	y = size;
-	x = 0;
+	color = COLOR_BLACK;	
+	img = data->img;
+
+	y = 0;
 	while (y < W_HEIGHT)
 	{
+		x = 0;
 		while (x < W_WIDTH)
 		{
 			// mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
-			put_pixel_to_img(img, x, y, color);
+			put_pixel_to_img(img, x, y, color);			
 			x++;
 		}
-		x = 0;
-		y += size;
+		y++;
 	}
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, img->ptr, 0, 0);
 
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, img->ptr, 0, 0);
 }

@@ -23,8 +23,8 @@
 # include <fcntl.h>
 # include <stdbool.h>
 /* ************************************************************************** */
-# define W_HEIGHT 600
-# define W_WIDTH 1000
+# define W_HEIGHT 1200
+# define W_WIDTH 2000
 # define W_TITLE "La fenetre a Sorakann"
 # define MLX_ERROR 1
 # define SCREEN_OVERFLOW 1
@@ -41,9 +41,11 @@ int		action_key(int key, void *param);
 int		action_mouse(int button,int x,int y,void *param);
 /* ------------------------------------------------------------------------- */
 int		bresenham(t_p start, t_p end, t_data *data, int color);
-void	put_pixel_to_img(t_img_data *img, t_p p, int color);
+void	put_pixel_to_img(t_img *img, int x, int y, int color);
 /* ------------------------------------------------------------------------- */
 void	draw_grid(int size, t_data *data, int color);
+void	draw_square(t_data *data, int color);
+void 	draw_clean(t_data *data);
 void	draw (t_p *table, int size_l, int size_c, t_data *data);
 /* ------------------------------------------------------------------------- */
 void	init_table (t_p *table, int size_l, int size_c);

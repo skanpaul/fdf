@@ -12,11 +12,39 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void	put_pixel_to_img(t_img_data *img, t_p p, int color)
+// void	put_pixel_to_img(t_img *img, t_p p, int color)
+// {
+// 	char	*pixel_addr;
+
+// 	pixel_addr = img->addr + (p.y * img->size_line + p.x * (img->bpp / 8));
+
+// 	*(unsigned int*)pixel_addr = color;
+// }
+
+/* ************************************************************************** */
+// void	put_pixel_to_img(t_img *img, int x, int y, int color)
+// {
+// 	char    *pixel;
+
+//     pixel = img->addr + (y * img->size_line + x * (img->bpp / 8));
+// 	*(unsigned int *)pixel = color;
+// }
+/* ************************************************************************** */
+void	put_pixel_to_img(t_img *img, int x, int y, int color)
 {
-	char	*pixel_addr;
+	char    *pixel;
+	int		i;
 
-	pixel_addr = img->addr + (p.y * img->line_length + p.x * (img->bits_per_pixel / 8));
-
-	*(unsigned int*)pixel_addr = color;
+	i = img->bpp - 8;
+    pixel = img->addr + (y * img->size_line + x * (img->bpp / 8));
+	while (i >= 0)
+	{
+		/* big endian, MSB is the leftmost bit */
+		if (img->endian != 0)
+			*pixel++ = (color >> i) & 0xFF;
+		/* little endian, LSB is the leftmost bit */
+		else
+			*pixel++ = (color >> (img->bpp - 8 - i)) & 0xFF;
+		i -= 8;
+	}
 }
