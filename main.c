@@ -12,21 +12,15 @@
 #include "main.h"
 
 /* ************************************************************************** */
-// int main(int argc, char **argv)
-int	main(void)
+int main(int argc, char **argv)
 {
 	t_data	data;
 	t_img	img;
-	// t_file	file;
-	// t_p		*table_point;
-	// t_it	info_table;
-	// file.name = "test";
-	// if (argc != 2)
-	// 	return (-1);
-	// file.name = argv[1];
-	// table_point = get_data_from_file(&file, &info_table);
-	// if (table_point == NULL)
-	// 	return (0);
+
+	if (argc != 2)
+		return (-1);
+	data.file.name = argv[1];
+
 	/* INITIALISATION serveur -------------------------------------------- */
 	if (init_mlx(&data) == MLX_ERROR)
 		return (MLX_ERROR);
@@ -34,7 +28,6 @@ int	main(void)
 	img.ptr = mlx_new_image(data.mlx_ptr, W_WIDTH, W_HEIGHT);
 	img.addr = mlx_get_data_addr(img.ptr, &img.bpp,
 			&img.size_line, &img.endian);
-
 	data.img = &img;
 
 	/* EXPERIMENTATION --------------------------------------------------- */

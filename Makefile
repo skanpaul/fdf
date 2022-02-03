@@ -14,8 +14,8 @@ NAME	= fdf
 POINTFILE = "test"
 
 CC		= gcc
-# CFLAGS	= -Wall -Wextra -Werror
-CFLAGS	= 
+CFLAGS	= -Wall -Wextra -Werror
+# CFLAGS	= 
 
 MLXPATH	= minilibx_macos/
 MLXFLAG	= -L$(MLXPATH) -lmlx -L. -lft -lm -framework OpenGL -framework AppKit

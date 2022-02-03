@@ -32,15 +32,6 @@ typedef struct s_file
 	int		fd;
 } t_file;
 /* -------------------------------------------------------------------------- */
-typedef struct s_data
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_file	file;
-	t_it	info_table;
-	t_img	*img;
-} t_data;
-/* -------------------------------------------------------------------------- */
 typedef struct s_p
 {
 	int	x;
@@ -63,6 +54,15 @@ typedef struct s_vector
 	t_p start;
 	t_p	end;
 } t_vector;
+/* -------------------------------------------------------------------------- */
+typedef struct s_data
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_file	file;
+	t_it	info_table;
+	t_img	*img;
+} t_data;
 /* -------------------------------------------------------------------------- */
 typedef struct s_img
 {

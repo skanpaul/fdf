@@ -2,7 +2,8 @@
 	"files.exclude": {
 		"libft.*": true,
 		"man_macos/": true,
-		"*.o": true
+		"*.o": true,
+		"test_maps": true
 	},
 	"explorer.sortOrder": "type",
 	"files.associations": {

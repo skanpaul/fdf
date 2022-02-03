@@ -3,4 +3,3 @@ man_macos/
 *.o
 minilibx_macos/
 *.dSYM
-test_maps
