@@ -69,7 +69,7 @@ typedef struct s_img
 	void *ptr;		// ou ID
 	char *addr;
 	int size_line;	// BYTE
-	int bpp; // bits_per_pixel souvent = 32
+	int bpp; 		// bits_per_pixel souvent = 32
 	int endian;	
 } t_img;
 /* ************************************************************************** */

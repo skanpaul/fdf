@@ -12,14 +12,22 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int main(int argc, char **argv)
+// int main(int argc, char **argv)
+// {
+// 	t_data	data;
+// 	t_img	img;
+
+// 	if (argc != 2)
+// 		return (-1);
+// 	data.file.name = argv[1];
+int main(void)
 {
 	t_data	data;
 	t_img	img;
 
-	if (argc != 2)
-		return (-1);
-	data.file.name = argv[1];
+	// data.file.name = "test_maps/julia.fdf";
+	// data.file.name = "test_maps/elem-fract.fdf";
+	data.file.name = "test_maps/10-70.fdf";
 
 	/* INITIALISATION serveur -------------------------------------------- */
 	if (init_mlx(&data) == MLX_ERROR)

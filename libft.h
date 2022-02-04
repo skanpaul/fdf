@@ -101,7 +101,8 @@ size_t	ft_printf_fd_xup(int n, int fd);		// add: 19.01.2022
 char	*get_next_line(int fd);
 
 /* ---- NOUVELLE FONCTION POUR FDF ------------------------------------- */
-int ft_split_count(char **table_str);
+int		ft_split_count(char **split_table);
+void	ft_split_free(char **split_table);
 
 /* ************************************************************************** */
 /* int		ft_isspace(int c); */

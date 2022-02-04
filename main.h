@@ -26,9 +26,10 @@
 # define W_HEIGHT 1200
 # define W_WIDTH 2000
 # define W_TITLE "La fenetre a Sorakann"
+# define NO_ERROR 0
 # define MLX_ERROR 1
 # define SCREEN_OVERFLOW 1
-# define NO_SCREEN_OVERFLOW 0
+# define ERROR_GET_INFO_TABLE 1
 /* ************************************************************************** */
 int		init_mlx (t_data *data);
 

@@ -1,9 +1,11 @@
 {
 	"files.exclude": {
-		"libft.*": true,
+		"libft.*": false,
 		"man_macos/": true,
 		"*.o": true,
-		"test_maps": true
+		"test_maps": false,
+		"do_z_table_old.c": true,	
+		"do_xyz_table_old.c": true	
 	},
 	"explorer.sortOrder": "type",
 	"files.associations": {
