@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_vector_unit.c                                 :+:      :+:    :+:   */
+/*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 13:40:48 by ski               #+#    #+#             */
-/*   Updated: 2022/02/04 13:40:49 by ski              ###   ########.fr       */
+/*   Created: 2022/02/04 17:08:19 by ski               #+#    #+#             */
+/*   Updated: 2022/02/04 17:08:20 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "main.h"
 
 /* ************************************************************************** */
-void init_vector_unit_iso(t_data *data)
+static void free_malloc(t_p *table_1, t_p *table_2, t_p *table_3);
+
+/* ************************************************************************** */
+void rendering(t_p *xyz, t_data *data)
 {
-	data->vu_i = (t_p ){.x = 2, 	.y = 1, 	.z = 0};
-	data->vu_j = (t_p ){.x = -2, 	.y = 1, 	.z = 0};
-	data->vu_k = (t_p ){.x = 0, 	.y = -1, 	.z = 0};
+	t_p *zoom = NULL;
+	t_p *deform = NULL;
+	t_p *decal = NULL;
+
+	
+	zoom = trans_zoom(xyz, data);
+	deform = trans_deform(zoom, data);
+	decal = trans_decal(deform, data);
+	
+	draw_clean(data);
+	draw(decal, data);
+	free_malloc(zoom, deform, decal);
 }
 
 /* ************************************************************************** */
-void 	init_vector_unit_standard(t_data *data)
+static void free_malloc(t_p *table_1, t_p *table_2, t_p *table_3)
 {
-	data->vu_i = (t_p ){.x = 1, 	.y = 0, 	.z = 0};
-	data->vu_j = (t_p ){.x = -1, 	.y = 1, 	.z = 0};
-	data->vu_k = (t_p ){.x = 0, 	.y = -1, 	.z = 0};
+	if (table_1)
+		free(table_1);
+	if (table_2)
+		free(table_2);
+	if (table_3)
+		free(table_3);
 }

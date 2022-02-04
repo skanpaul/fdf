@@ -26,11 +26,19 @@ int main(void)
 	t_data	data;
 	t_img	img;
 
+	data.coef = 1;
+
 	// data.file.name = "test_maps/texte";
+	// data.file.name = "test_maps/42.fdf";	
+	// data.file.name = "test_maps/100-6.fdf"; 		// depasse peut etre gauche et droite
+
 	// data.file.name = "test_maps/elem-fract.fdf";		// TRES LONG
 	// data.file.name = "test_maps/julia.fdf";			// TRES LONG
 
 	data.file.name = "test_maps/mars.fdf";			// PROBLEME
+	data.xyz = get_data_from_file(&(data.file), &(data.info_table));
+	if (data.xyz  == NULL)
+		return (0);
 	
 	/* INITIALISATION serveur -------------------------------------------- */
 	if (init_mlx(&data) == MLX_ERROR)
@@ -43,8 +51,8 @@ int main(void)
 	data.img = &img;
 
 	/* INITIALISATION vecteur -------------------------------------------- */
-	init_vector_unit(&data);
-	init_vector_zoom(&data, 2);
+	init_vector_unit_iso(&data);
+	init_vector_zoom(&data, data.coef);
 	init_vector_decal(&data);
 
 	/* GESTION des événements -------------------------------------------- */

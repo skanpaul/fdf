@@ -34,7 +34,8 @@
 int		init_mlx (t_data *data);
 
 void 	init_vector_zoom(t_data *data, int coef);
-void 	init_vector_unit(t_data *data);
+void	init_vector_unit_iso(t_data *data);
+void 	init_vector_unit_standard(t_data *data);
 void 	init_vector_decal(t_data *data);
 
 /* ------------------------------------------------------------------------- */
@@ -47,7 +48,7 @@ int		get_info_table(t_file *file, t_it *info_table);
 
 /* ------------------------------------------------------------------------- */
 int		action_key(int key, void *param);
-int		action_mouse(int button,int x,int y,void *param);
+int		action_mouse(int event,int x,int y,void *param);
 /* ------------------------------------------------------------------------- */
 int		bresenham(t_p start, t_p end, t_data *data, int color);
 void	put_pixel_to_img(t_img *img, int x, int y, int color);
@@ -57,6 +58,7 @@ void	draw_square(t_data *data, int color);
 void 	draw_clean(t_data *data);
 // void	draw (t_p *table, int size_l, int size_c, t_data *data);
 void	draw (t_p *table, t_data *data);
+void	rendering(t_p *xyz, t_data *data);
 /* ------------------------------------------------------------------------- */
 void	init_table (t_p *table, int size_l, int size_c);
 bool	is_screen_overflow(int x, int y);

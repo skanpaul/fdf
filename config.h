@@ -76,5 +76,15 @@
 #define KEY_SHIFT_R		258
 #define KEY_ENTER		36
 
+#define KEY_ARROW_UP	126
+#define KEY_ARROW_DOWN	125
+#define KEY_ARROW_LEFT	123
+#define KEY_ARROW_RIGHT	124
+
+#define MOUSE_SCROLL_UP		4
+#define MOUSE_SCROLL_DOWN	5
+#define MOUSE_CLICK_LEFT	1
+#define MOUSE_CLICK_RIGHT	2
+
 /* ************************************************************************** */
 // #endif

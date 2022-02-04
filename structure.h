@@ -46,10 +46,12 @@ typedef struct s_data
 	void	*win_ptr;
 	t_file	file;
 	t_it	info_table;
+	t_p		*xyz;
 	t_img	*img;
 	t_p		vu_i;
 	t_p		vu_j;
 	t_p		vu_k;
+	int		coef;
 	t_p		factor;
 	t_p		decal;
 	int		info_error;
