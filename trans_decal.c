@@ -12,7 +12,6 @@
 #include "main.h"
 
 /* ************************************************************************** */
-// t_p *trans_decal(t_p *input, int max_l, int max_c, t_p v_decal)
 t_p *trans_decal(t_p *input, t_data *data)
 {
 	int y;

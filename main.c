@@ -19,6 +19,7 @@
 
 // 	if (argc != 2)
 // 		return (-1);
+
 // 	data.file.name = argv[1];
 int main(void)
 {

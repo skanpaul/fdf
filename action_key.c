@@ -17,31 +17,17 @@ void free_malloc(t_p *table_1, t_p *table_2, t_p *table_3, t_p *table_4);
 /* ************************************************************************** */
 int action_key(int key, void *param)
 {
-	/* vecteur UNITAIRE ------------------------------------ */
-	// t_p v_i = {.x = 2, 		.y = 1, 	.z = 0};
-	// t_p v_j = {.x = -2, 	.y = 1, 	.z = 0};
-	// t_p v_k = {.x = 0, 		.y = -1, 	.z = 0};
-	
-	/* vecteur DECALAGE ------------------------------------ */
-	// int x_decal = W_WIDTH / 2;
-	// int y_decal = 100;
-	// t_p v_decal = {	.x = x_decal, 	.y = y_decal};
-	/* vecteur ZOOM ---------------------------------------- */
-	// int fac = 3;
-	// int x_fact = 1 * fac;
-	// int y_fact = 1 * fac;
-	// int z_fact = 1 * fac;
-	// t_p factor = {.x = x_fact, .y = y_fact, .z = z_fact};
+	t_data *data;
+	int max_l;
+	int max_c;
+
 	/* TABLE ----------------------------------------------- */
 	t_p *xyz = NULL;
 	t_p *zoom = NULL;
 	t_p *deform = NULL;
 	t_p *decal = NULL;
 	/* ----------------------------------------------------- */
-	t_data *data;
 	data = (t_data *)param;
-	int max_l;
-	int max_c;
 	/* ----------------------------------------------------- */
 	if (key == KEY_D)
 	{
@@ -51,20 +37,11 @@ int action_key(int key, void *param)
 		max_c = data->info_table.max_c;
 		max_l = data->info_table.max_l;
 		/* ----------------------------------------------------- */
-		// zoom = trans_zoom(xyz, max_l, max_c, factor);
 		zoom = trans_zoom(xyz, data);
-		// deform = trans_deform(zoom, max_l, max_c, v_i, v_j, v_k);
 		deform = trans_deform(zoom, data);
-		// decal = trans_decal(deform, max_l, max_c, v_decal);
 		decal = trans_decal(deform, data);
 		draw(decal, max_l, max_c, data);
 		free_malloc(xyz, zoom, deform, decal);
-	}
-	/* ----------------------------------------------------- */
-	if (key == KEY_S)
-	{
-		printf("S appuyé\n");
-		draw_square(data, 0x00FFFF00);
 	}
 	/* ----------------------------------------------------- */
 	if (key == KEY_G)
