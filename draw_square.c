@@ -19,6 +19,7 @@ void	draw_square(t_data *data, int color)
 	t_img *img;
 
 	img = data->img;
+	color = 0;
 
 	/* -------------------------------------------- */
 	y = 0;	

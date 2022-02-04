@@ -41,6 +41,8 @@ int	*do_z_table(t_file *file, t_it *info_table)
 			i++;
 			pos_z++;
 		}
+		ft_split_free(split);
+		free(line);
 	}
 	return (z_table);
 }

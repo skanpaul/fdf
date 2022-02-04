@@ -37,6 +37,13 @@ int		init_mlx (t_data *data);
 t_p		*get_data_from_file(t_file *file, t_it *info_table);
 int		*do_z_table(t_file *file, t_it *info_table);
 t_p		*do_xyz_table(t_it *info_table, int *z_table);
+
+
+
+t_p		*do_table(t_file *file, t_it *info_table);
+
+
+
 /* ------------------------------------------------------------------------- */
 int		action_key(int key, void *param);
 int		action_mouse(int button,int x,int y,void *param);

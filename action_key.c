@@ -26,7 +26,7 @@ int action_key(int key, void *param)
 	int y_decal = 100;
 	t_p v_decal = {	.x = x_decal, 	.y = y_decal};
 	/* vecteur ZOOM ---------------------------------------- */
-	int fac = 5;
+	int fac = 1;
 	int x_fact = 1 * fac;
 	int y_fact = 1 * fac;
 	int z_fact = 1 * fac;

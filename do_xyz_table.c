@@ -15,26 +15,23 @@
 t_p	*do_xyz_table(t_it *info_table, int *z_table)
 {
 	t_p	*xyz;
-	int	max_l;
-	int	max_c;
 	int	y;
 	int	x;
 	int z;
 
-	max_l = info_table->max_l;
-	max_c = info_table->max_c;
 	y = 0;
 	x = 0;
 
-	xyz = (t_p *)malloc((max_l * max_c) * sizeof(t_p));
+	xyz = (t_p *)malloc((info_table->max_l * info_table->max_c) * sizeof(t_p));
+	
 	y = 0;
-	while (y < max_l)
+	while (y < info_table->max_l)
 	{
 		x = 0;
-		while (x < max_c)
+		while (x < info_table->max_c)
 		{
-			z = z_table[x + y * max_c];
-			xyz[x + y * max_c]
+			z = z_table[x + y * info_table->max_c];
+			xyz[x + y * info_table->max_c]
 				= (t_p){.x = x, .y = y, .z = z};
 			x++;
 		}	
@@ -42,3 +39,35 @@ t_p	*do_xyz_table(t_it *info_table, int *z_table)
 	}
 	return (xyz);
 }
+
+/* ************************************************************************** */
+// t_p	*do_xyz_table(t_it *info_table, int *z_table)
+// {
+// 	t_p	*xyz;
+// 	int	max_l;
+// 	int	max_c;
+// 	int	y;
+// 	int	x;
+// 	int z;
+
+// 	max_l = info_table->max_l;
+// 	max_c = info_table->max_c;
+// 	y = 0;
+// 	x = 0;
+
+// 	xyz = (t_p *)malloc((max_l * max_c) * sizeof(t_p));
+// 	y = 0;
+// 	while (y < max_l)
+// 	{
+// 		x = 0;
+// 		while (x < max_c)
+// 		{
+// 			z = z_table[x + y * max_c];
+// 			xyz[x + y * max_c]
+// 				= (t_p){.x = x, .y = y, .z = z};
+// 			x++;
+// 		}	
+// 		y++;
+// 	}
+// 	return (xyz);
+// }

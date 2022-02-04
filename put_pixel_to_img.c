@@ -35,6 +35,9 @@ void	put_pixel_to_img(t_img *img, int x, int y, int color)
 	char    *pixel;
 	int		i;
 
+	if ((x >= W_WIDTH) || (y >= W_HEIGHT)  )
+		return;
+
 	i = img->bpp - 8;
     pixel = img->addr + (y * img->size_line + x * (img->bpp / 8));
 	while (i >= 0)

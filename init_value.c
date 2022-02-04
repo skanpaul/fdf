@@ -12,7 +12,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void init_table(t_p *xyz, int size_y, int max_c)
+void init_table(t_p *xyz, int max_l, int max_c)
 {
 	int y; //y
 	int x; //x
@@ -44,6 +44,7 @@ void init_table(t_p *xyz, int size_y, int max_c)
 	// x = 3;	xyz[x + y * max_c] = (t_p){x, y, z};
 	/* -------------------------------------------- */
 	x = max_c;
+	max_l = 0;
 
 	return ;
 }

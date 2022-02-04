@@ -25,9 +25,28 @@ int main(void)
 	t_data	data;
 	t_img	img;
 
-	// data.file.name = "test_maps/julia.fdf";
-	// data.file.name = "test_maps/elem-fract.fdf";
-	data.file.name = "test_maps/10-70.fdf";
+	// data.file.name = "test_maps/texte";
+	// data.file.name = "test_maps/10-2.fdf";
+	// data.file.name = "test_maps/10-70.fdf";		// depasse en haut
+	// data.file.name = "test_maps/100-6.fdf"; 		// depasse peut etre gauche et droite
+	// data.file.name = "test_maps/20-60.fdf";		// depasse en haut
+	// data.file.name = "test_maps/42.fdf";
+	// data.file.name = "test_maps/50-4.fdf";
+	// data.file.name = "test_maps/basictest.fdf";
+	// data.file.name = "test_maps/elem-col.fdf";
+	// data.file.name = "test_maps/elem-fract.fdf";	// PROBLEME
+	// data.file.name = "test_maps/elem2.fdf";
+	// data.file.name = "test_maps/elem.fdf";
+	// data.file.name = "test_maps/julia.fdf";	// PROBLEME
+	data.file.name = "test_maps/mars.fdf";	// PROBLEME``
+	// data.file.name = "test_maps/pentenegpos.fdf";
+	// data.file.name = "test_maps/plat.fdf";
+	// data.file.name = "test_maps/pnp_flat.fdf";
+	// data.file.name = "test_maps/pylone.fdf";
+	// data.file.name = "test_maps/pyra.fdf";
+	// data.file.name = "test_maps/pyramide.fdf";
+	// data.file.name = "test_maps/t1.fdf";
+	// data.file.name = "test_maps/t2.fdf";
 
 	/* INITIALISATION serveur -------------------------------------------- */
 	if (init_mlx(&data) == MLX_ERROR)
