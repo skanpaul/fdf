@@ -27,7 +27,7 @@ int get_info_table(t_file *file, t_it *info_table)
 		line = get_next_line(file->fd);
 		if(line == NULL)
 			break ;
-		if (info_table->max_l == 1)
+		if (info_table->max_l == 0)
 		{
 			split = ft_split(line, ' ');
 			info_table->max_c = ft_split_count(split);

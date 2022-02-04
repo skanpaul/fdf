@@ -18,7 +18,6 @@ void init_vector_zoom(t_data *data, int coef)
 	int y_fact;
 	int z_fact;
 
-	coef = 3;
 	x_fact = 1 * coef;
 	y_fact = 1 * coef;
 	z_fact = 1 * coef;

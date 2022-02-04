@@ -18,8 +18,6 @@ void free_malloc(t_p *table_1, t_p *table_2, t_p *table_3, t_p *table_4);
 int action_key(int key, void *param)
 {
 	t_data *data;
-	int max_l;
-	int max_c;
 
 	/* TABLE ----------------------------------------------- */
 	t_p *xyz = NULL;
@@ -34,13 +32,11 @@ int action_key(int key, void *param)
 		xyz = get_data_from_file(&(data->file), &(data->info_table));
 		if (xyz == NULL)
 			return (0);
-		max_c = data->info_table.max_c;
-		max_l = data->info_table.max_l;
 		/* ----------------------------------------------------- */
 		zoom = trans_zoom(xyz, data);
 		deform = trans_deform(zoom, data);
 		decal = trans_decal(deform, data);
-		draw(decal, max_l, max_c, data);
+		draw(decal, data);
 		free_malloc(xyz, zoom, deform, decal);
 	}
 	/* ----------------------------------------------------- */
@@ -53,7 +49,6 @@ int action_key(int key, void *param)
 	if (key == KEY_C)
 	{
 		printf("C appuyé\n");
-		// mlx_clear_window(data->mlx_ptr, data->win_ptr);
 		draw_clean(data);
 		free_malloc(xyz, zoom, deform, decal);
 	}

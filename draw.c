@@ -12,7 +12,8 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void draw (t_p *xyz_table, int max_l, int max_c, t_data *data)
+// void draw (t_p *xyz_table, int max_l, int max_c, t_data *data)
+void draw(t_p *xyz_table, t_data *data)
 {
 	int y;
 	int x;
@@ -21,20 +22,20 @@ void draw (t_p *xyz_table, int max_l, int max_c, t_data *data)
 	t_p p_bas;
 
 	y = 0;
-	while(y < max_l)
+	while(y < data->info_table.max_l)
 	{
 		x = 0;
-		while (x < max_c)
+		while (x < data->info_table.max_c)
 		{
-			start = xyz_table[x + y * max_c];
-			if(x != (max_c - 1))
+			start = xyz_table[x + y * data->info_table.max_c];
+			if(x != (data->info_table.max_c - 1))
 			{
-				p_droite = xyz_table[(x + 1) + y * max_c];
+				p_droite = xyz_table[(x + 1) + y * data->info_table.max_c];
 				bresenham(start, p_droite, data, COLOR_RED);
 			}
-			if(y < (max_l - 1))
+			if(y < (data->info_table.max_l  - 1))
 			{
-				p_bas = xyz_table[x + (y + 1) * max_c];
+				p_bas = xyz_table[x + (y + 1) * data->info_table.max_c];
 				bresenham(start, p_bas, data, COLOR_RED);
 			}		
 			x++;
@@ -45,24 +46,3 @@ void draw (t_p *xyz_table, int max_l, int max_c, t_data *data)
 	return ;
 }
 /* ************************************************************************** */
-	// bresenham(table_2[0][0], table_2[0][1], data, COLOR_RED);
-	// bresenham(table_2[0][0], table_2[1][0], data, COLOR_RED);
-	// bresenham(table_2[1][0], table_2[1][1], data, COLOR_RED);
-	// bresenham(table_2[1][1], table_2[0][1], data, COLOR_RED);
-
-
-	// y = 0; x = 0;	start = xyz_table[x + y * max_c];
-	// y = 0; x = 1;	end = xyz_table[x + y * max_c];
-	// bresenham(start, end, data, COLOR_RED);
-	
-	// y = 0; x = 0;	start = xyz_table[x + y * max_c];
-	// y = 1; x = 0;	end = xyz_table[x + y * max_c];
-	// bresenham(start, end, data, COLOR_RED);
-	
-	// y = 1; x = 0;	start = xyz_table[x + y * max_c];
-	// y = 1; x = 1;	end = xyz_table[x + y * max_c];
-	// bresenham(start, end, data, COLOR_RED);
-	
-	// y = 0; x = 1;	start = xyz_table[x + y * max_c];
-	// y = 1; x = 1;	end = xyz_table[x + y * max_c];
-	// bresenham(start, end, data, COLOR_RED);

@@ -52,6 +52,7 @@ typedef struct s_data
 	t_p		vu_k;
 	t_p		factor;
 	t_p		decal;
+	int		info_error;
 
 } t_data;
 /* -------------------------------------------------------------------------- */

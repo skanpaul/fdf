@@ -27,6 +27,9 @@ int main(void)
 	t_img	img;
 
 	// data.file.name = "test_maps/texte";
+	// data.file.name = "test_maps/elem-fract.fdf";		// TRES LONG
+	// data.file.name = "test_maps/julia.fdf";			// TRES LONG
+
 	data.file.name = "test_maps/mars.fdf";			// PROBLEME
 	
 	/* INITIALISATION serveur -------------------------------------------- */
@@ -41,7 +44,7 @@ int main(void)
 
 	/* INITIALISATION vecteur -------------------------------------------- */
 	init_vector_unit(&data);
-	init_vector_zoom(&data, 1);
+	init_vector_zoom(&data, 2);
 	init_vector_decal(&data);
 
 	/* GESTION des événements -------------------------------------------- */
