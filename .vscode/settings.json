@@ -1,9 +1,9 @@
 {
 	"files.exclude": {
-		"libft.*": false,
+		"libft.*": true,
 		"man_macos/": true,
 		"*.o": true,
-		"test_maps": false,
+		"test_maps": true,
 		"do_z_table_old.c": true,	
 		"do_xyz_table_old.c": true	
 	},

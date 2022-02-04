@@ -33,16 +33,17 @@
 /* ************************************************************************** */
 int		init_mlx (t_data *data);
 
+void 	init_vector_zoom(t_data *data, int coef);
+void 	init_vector_unit(t_data *data);
+void 	init_vector_decal(t_data *data);
+
 /* ------------------------------------------------------------------------- */
 t_p		*get_data_from_file(t_file *file, t_it *info_table);
-int		*do_z_table(t_file *file, t_it *info_table);
-t_p		*do_xyz_table(t_it *info_table, int *z_table);
-
-
+int		*do_z_table(t_file *file, t_it *info_table);	// N'EST PLUS UTILISE
+t_p		*do_xyz_table(t_it *info_table, int *z_table);	// N'EST PLUS UTILISE
 
 t_p		*do_table(t_file *file, t_it *info_table);
-
-
+int		get_info_table(t_file *file, t_it *info_table);
 
 /* ------------------------------------------------------------------------- */
 int		action_key(int key, void *param);
@@ -59,9 +60,12 @@ void	draw (t_p *table, int size_l, int size_c, t_data *data);
 void	init_table (t_p *table, int size_l, int size_c);
 bool	is_screen_overflow(int x, int y);
 /* ------------------------------------------------------------------------- */
-t_p		*trans_decal(t_p *table, int size_l, int size_c, t_p v_decal);
-t_p		*trans_deform(t_p *t, int size_l, int size_c, t_p i, t_p j, t_p k);
-t_p		*trans_zoom(t_p *table, int size_l, int size_c, t_p factor);
+// t_p		*trans_zoom(t_p *table, int size_l, int size_c, t_p factor);
+t_p		*trans_zoom(t_p *input, t_data *data);
+// t_p		*trans_deform(t_p *t, int size_l, int size_c, t_p i, t_p j, t_p k);
+t_p		*trans_deform(t_p *input, t_data *data);
+// t_p		*trans_decal(t_p *table, int size_l, int size_c, t_p v_decal);
+t_p		*trans_decal(t_p *table, t_data *data);
 // t_p		*trans_rot(...);
 /* ************************************************************************** */
 #endif

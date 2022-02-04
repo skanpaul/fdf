@@ -12,10 +12,17 @@
 #include "main.h"
 
 /* ************************************************************************** */
-t_p *trans_decal(t_p *input, int max_l, int max_c, t_p v_decal)
+// t_p *trans_decal(t_p *input, int max_l, int max_c, t_p v_decal)
+t_p *trans_decal(t_p *input, t_data *data)
 {
 	int y;
 	int x;
+	int max_c;
+	int max_l;
+
+	max_c = data->info_table.max_c;
+	max_l = data->info_table.max_l;
+
 	t_p *output;
 
 	output =(t_p *)malloc((max_l * max_c) * sizeof(t_p));
@@ -26,8 +33,8 @@ t_p *trans_decal(t_p *input, int max_l, int max_c, t_p v_decal)
 		x = 0;
 		while (x < max_c)
 		{
-			output[x + y * max_c].x = input[x + y * max_c].x + v_decal.x;
-			output[x + y * max_c].y = input[x + y * max_c].y + v_decal.y;
+			output[x + y * max_c].x = input[x + y * max_c].x + data->decal.x;
+			output[x + y * max_c].y = input[x + y * max_c].y + data->decal.y;
 			x++;
 		}	
 		y++;
