@@ -12,7 +12,6 @@
 #include "main.h"
 
 /* ************************************************************************** */
-// t_p *trans_zoom(t_p *input, int max_l, int max_c, t_p factor)
 t_p *trans_zoom(t_p *input, t_data *data)
 {
 	int y;
@@ -30,9 +29,14 @@ t_p *trans_zoom(t_p *input, t_data *data)
 		x = 0;
 		while (x < max_c)
 		{
-			output[x + y * max_c].x = input[x + y * max_c].x * data->factor.x;
-			output[x + y * max_c].y = input[x + y * max_c].y * data->factor.y;
-			output[x + y * max_c].z = input[x + y * max_c].z * data->factor.z;
+			// output[x + y * max_c].x = input[x + y * max_c].x * data->factor.x;
+			// output[x + y * max_c].y = input[x + y * max_c].y * data->factor.y;
+			// output[x + y * max_c].z = input[x + y * max_c].z * data->factor.z;
+			
+			output[x + y * max_c].x = input[x + y * max_c].x * data->factor_x;
+			output[x + y * max_c].y = input[x + y * max_c].y * data->factor_y;
+			output[x + y * max_c].z = input[x + y * max_c].z * data->factor_z;
+
 			x++;
 		}	
 		y++;

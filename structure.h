@@ -38,6 +38,7 @@ typedef struct s_p
 	int	x;
 	int	y;
 	int	z;
+	int color;
 } t_p;
 /* -------------------------------------------------------------------------- */
 typedef struct s_data
@@ -52,12 +53,21 @@ typedef struct s_data
 	t_p		vu_j;
 	t_p		vu_k;
 	int		coef;
+	int		coef_x;
+	int		coef_y;
+	int		coef_z;
 	t_p		factor;
+	int		factor_x;
+	int		factor_y;
+	int		factor_z;
 	double	alpha_z;
 	double	alpha_x;
 	double	alpha_y;
+	int		max_up;
+	int		max_down;
+	int		max_left;
+	int		max_right;
 	t_p		decal;
-	int		info_error;
 
 } t_data;
 /* -------------------------------------------------------------------------- */

@@ -33,21 +33,22 @@
 /* ************************************************************************** */
 int		init_mlx (t_data *data);
 
+void	init_data(t_data *data);
 void 	init_vector_zoom(t_data *data, int coef);
 void	init_vector_unit_iso(t_data *data);
 void 	init_vector_unit_standard(t_data *data);
 void 	init_vector_decal(t_data *data);
-
 /* ------------------------------------------------------------------------- */
 t_p		*get_data_from_file(t_file *file, t_it *info_table);
-// int		*do_z_table(t_file *file, t_it *info_table);	// N'EST PLUS UTILISE
-// t_p		*do_xyz_table(t_it *info_table, int *z_table);	// N'EST PLUS UTILISE
-
 t_p		*do_table(t_file *file, t_it *info_table);
 int		get_info_table(t_file *file, t_it *info_table);
-
 /* ------------------------------------------------------------------------- */
 int		action_key(int key, void *param);
+void	action_key_rotation(int key, t_data *data);
+void	action_key_decalage(int key, t_data *data);
+void	action_key_perspective(int key, t_data *data);
+void	action_key_usefull(int key, t_data *data);
+/* ------------------------------------------------------------------------- */
 int		action_mouse(int event,int x,int y,void *param);
 /* ------------------------------------------------------------------------- */
 int		bresenham(t_p start, t_p end, t_data *data, int color);

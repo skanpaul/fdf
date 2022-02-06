@@ -12,7 +12,6 @@
 #include "main.h"
 
 /* ************************************************************************** */
-// void draw (t_p *xyz_table, int max_l, int max_c, t_data *data)
 void draw(t_p *xyz_table, t_data *data)
 {
 	int y;

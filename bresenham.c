@@ -24,7 +24,6 @@ int	bresenham(t_p start, t_p end, t_data *data, int color)
 	init_bresenham(&b, start, end);
 	while (true)
 	{
-		// mlx_pixel_put(data->mlx_ptr, data->win_ptr, start.x, start.y, color);
 		put_pixel_to_img(data->img, start.x, start.y, color);
 		if (start.x == end.x && start.y == end.y)
 			break ;

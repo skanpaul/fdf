@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_key.c                                        :+:      :+:    :+:   */
+/*   action_key_usefull.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ski <marvin@42lausanne.ch>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 14:01:26 by ski               #+#    #+#             */
-/*   Updated: 2022/01/25 14:01:28 by ski              ###   ########.fr       */
+/*   Created: 2022/02/06 12:30:20 by ski               #+#    #+#             */
+/*   Updated: 2022/02/06 12:30:22 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "main.h"
 
 /* ************************************************************************** */
-int action_key(int key, void *param)
-{
-	t_data *data;
+static void	free_malloc(t_p *table_1);
 
-	data = (t_data *)param;
-	ft_printf("Touche: %d\n", key);
-	action_key_rotation(key, data);
-	action_key_decalage(key, data);
-	action_key_perspective(key, data);
-	action_key_usefull(key, data);
-	return (0);
+/* ************************************************************************** */
+void	action_key_usefull(int key, t_data *data)
+{
+	if (key == KEY_D)
+	{
+		init_data(data);
+		rendering(data->xyz, data);
+	}
+	if (key == KEY_ESC)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		free(data->mlx_ptr);
+		free_malloc(data->xyz);
+		exit(0);
+	}
 }
 
+/* ************************************************************************** */
+static void	free_malloc(t_p *table_1)
+{
+	if (table_1)
+		free(table_1);
+}
 /* ************************************************************************** */
