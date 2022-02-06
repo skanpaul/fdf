@@ -57,7 +57,6 @@ void	put_pixel_to_img(t_img *img, int x, int y, int color);
 void	draw_grid(int size, t_data *data, int color);
 void	draw_square(t_data *data, int color);
 void 	draw_clean(t_data *data);
-// void	draw (t_p *table, int size_l, int size_c, t_data *data);
 void	draw (t_p *table, t_data *data);
 void	rendering(t_p *xyz, t_data *data);
 /* ------------------------------------------------------------------------- */
