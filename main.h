@@ -66,6 +66,8 @@ bool	is_screen_overflow(int x, int y);
 t_p		*trans_zoom(t_p *input, t_data *data);
 t_p		*trans_deform(t_p *input, t_data *data);
 t_p		*trans_decal(t_p *input, t_data *data);
-// t_p		*trans_rot(...);
+t_p		*trans_rot_z(t_p *input, t_data *data, double alpha_z);
+t_p		*trans_rot_x(t_p *input, t_data *data, double alpha_x);
+t_p		*trans_rot_y(t_p *input, t_data *data, double alpha_y);
 /* ************************************************************************** */
 #endif

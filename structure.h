@@ -53,6 +53,9 @@ typedef struct s_data
 	t_p		vu_k;
 	int		coef;
 	t_p		factor;
+	double	alpha_z;
+	double	alpha_x;
+	double	alpha_y;
 	t_p		decal;
 	int		info_error;
 

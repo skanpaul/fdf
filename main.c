@@ -27,14 +27,15 @@ int main(void)
 	t_img	img;
 
 	data.coef = 1;
+	data.alpha_z = 0;
+	data.alpha_x = 0;
+	data.alpha_y = 0;
 
 	// data.file.name = "test_maps/texte";
 	data.file.name = "test_maps/42.fdf";	
 	// data.file.name = "test_maps/100-6.fdf"; 		// depasse peut etre gauche et droite
-
 	// data.file.name = "test_maps/elem-fract.fdf";		// TRES LONG
 	// data.file.name = "test_maps/julia.fdf";			// TRES LONG
-
 	// data.file.name = "test_maps/mars.fdf";			// PROBLEME
 	data.xyz = get_data_from_file(&(data.file), &(data.info_table));
 	if (data.xyz  == NULL)
@@ -56,7 +57,7 @@ int main(void)
 	init_vector_decal(&data);
 
 
-		rendering(data.xyz, &data);
+	rendering(data.xyz, &data);
 
 	/* GESTION des événements -------------------------------------------- */
 	mlx_mouse_hook(data.win_ptr, action_mouse, (void *)&data);

@@ -43,6 +43,18 @@ int action_key(int key, void *param)
 		// free_malloc(xyz, zoom, deform, decal);
 	}
 	/* ----------------------------------------------------- */
+	if (key == KEY_X)
+	{
+		data->alpha_z += 2 * (2 * M_PI / 360);
+		rendering(data->xyz, data);
+	}
+	/* ----------------------------------------------------- */
+	if (key == KEY_Z)
+	{
+		data->alpha_z -= 2 * (2 * M_PI / 360);
+		rendering(data->xyz, data);	
+	}
+	/* ----------------------------------------------------- */
 	if (key == KEY_ARROW_UP)
 	{
 		data->decal.y -= 20;
@@ -113,42 +125,3 @@ static void free_malloc(t_p *table_1)
 	if (table_1)
 		free(table_1);
 }
-
-/* ************************************************************************** */
-	// file.name = "test_maps/texte";
-	// file.name = "test_maps/10-2.fdf";
-	// file.name = "test_maps/10-70.fdf";		// depasse en haut
-	// file.name = "test_maps/100-6.fdf"; 		// depasse peut etre gauche et droite
-	// file.name = "test_maps/20-60.fdf";		// depasse en haut
-	// file.name = "test_maps/42.fdf";
-	// file.name = "test_maps/50-4.fdf";
-	// file.name = "test_maps/basictest.fdf";
-	// file.name = "test_maps/elem-col.fdf";
-	// file.name = "test_maps/elem-fract.fdf";	// PROBLEME
-	// file.name = "test_maps/elem2.fdf";
-	// file.name = "test_maps/elem.fdf";
-	// file.name = "test_maps/julia.fdf";	// PROBLEME
-	// file.name = "test_maps/mars.fdf";
-	// file.name = "test_maps/pentenegpos.fdf";
-	// file.name = "test_maps/plat.fdf";
-	// file.name = "test_maps/pnp_flat.fdf";
-	// file.name = "test_maps/pylone.fdf";
-	// file.name = "test_maps/pyra.fdf";
-	// file.name = "test_maps/pyramide.fdf";
-	// file.name = "test_maps/t1.fdf";
-	// file.name = "test_maps/t2.fdf";
-
-/* ************************************************************************** */
-	/* MANUEL ---------------------------------------------- */
-	// max_l = 4; // LIGNE
-	// max_c = 2; // COLONNE
-	// xyz = (t_p *)malloc((max_l * max_c) * sizeof(t_p));
-	// init_table(xyz, max_l, max_c);
-	/* AUTOMATIQUE ----------------------------------------- */
-
-/* ************************************************************************** */
-	// /* ----------------------------------------------------- */
-
-	// /* ----------------------------------------------------- */
-	// t_file	file;
-	// t_it	info_table;
