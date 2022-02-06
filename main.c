@@ -32,11 +32,11 @@ int main(void)
 	data.alpha_y = 0;
 
 	// data.file.name = "test_maps/texte";
-	data.file.name = "test_maps/42.fdf";	
+	// data.file.name = "test_maps/42.fdf";	
 	// data.file.name = "test_maps/100-6.fdf"; 		// depasse peut etre gauche et droite
 	// data.file.name = "test_maps/elem-fract.fdf";		// TRES LONG
 	// data.file.name = "test_maps/julia.fdf";			// TRES LONG
-	// data.file.name = "test_maps/mars.fdf";			// PROBLEME
+	data.file.name = "test_maps/mars.fdf";			// PROBLEME
 	data.xyz = get_data_from_file(&(data.file), &(data.info_table));
 	if (data.xyz  == NULL)
 		return (0);

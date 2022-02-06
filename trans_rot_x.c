@@ -36,14 +36,14 @@ t_p *trans_rot_x (t_p *input, t_data *data, double alpha)
 		x = 0;
 		while (x < max_c)
 		{
-			output[x + y * max_c].x = 
-					input[x + y * max_c].x * cos_alpha
-				+ 	input[x + y * max_c].y * (-sin_alpha);
+			output[x + y * max_c].x = input[x + y * max_c].x;
 			output[x + y * max_c].y = 
-					input[x + y * max_c].x * sin_alpha
-				+ 	input[x + y * max_c].y * cos_alpha;
+					input[x + y * max_c].y * cos_alpha
+				+ 	input[x + y * max_c].z * (-sin_alpha);
+
 			output[x + y * max_c].z = 
-					input[x + y * max_c].z;
+					input[x + y * max_c].y * sin_alpha
+				+ 	input[x + y * max_c].z * cos_alpha;
 			x++;
 		}	
 		y++;
