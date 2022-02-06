@@ -12,35 +12,27 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	data;
 	t_img	img;
 
 	if (argc != 2)
 		return (-1);
-
 	data.file.name = argv[1];
-
 	data.xyz = get_data_from_file(&(data.file), &(data.info_table));
-	if (data.xyz  == NULL)
+	if (data.xyz == NULL)
 		return (0);
-	
-	/* INITIALISATION serveur -------------------------------------------- */
 	if (init_mlx(&data) == MLX_ERROR)
 		return (MLX_ERROR);
-	/* INITIALISATION image ---------------------------------------------- */
 	img.ptr = mlx_new_image(data.mlx_ptr, W_WIDTH, W_HEIGHT);
 	img.addr = mlx_get_data_addr(img.ptr, &img.bpp,
 			&img.size_line, &img.endian);
 	data.img = &img;
-	/* INITIALISATION vecteur -------------------------------------------- */
 	init_data(&data);
 	rendering(data.xyz, &data);
-	/* GESTION des événements -------------------------------------------- */
 	mlx_mouse_hook(data.win_ptr, action_mouse, (void *)&data);
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, action_key, &data);	
-	mlx_loop(data.mlx_ptr);		// FONCTION OBLIGATOIRE
-	/* ------------------------------------------------------------------- */
+	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, action_key, &data);
+	mlx_loop(data.mlx_ptr);
 	return (0);
 }

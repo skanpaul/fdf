@@ -63,7 +63,6 @@ void	draw (t_p *table, t_data *data);
 void	rendering(t_p *xyz, t_data *data);
 /* ------------------------------------------------------------------------- */
 void	init_table (t_p *table, int size_l, int size_c);
-bool	is_screen_overflow(int x, int y);
 /* ------------------------------------------------------------------------- */
 t_p		*trans_zoom(t_p *input, t_data *data);
 t_p		*trans_deform(t_p *input, t_data *data);

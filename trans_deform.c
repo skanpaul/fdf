@@ -12,37 +12,51 @@
 #include "main.h"
 
 /* ************************************************************************** */
-t_p *trans_deform(t_p *input, t_data *data)
+static void	fct_1(t_p p_xy, t_p *output, t_p *input, t_data *data);
+
+/* ************************************************************************** */
+t_p	*trans_deform(t_p *input, t_data *data)
 {
-	int y;
-	int x;
-	int max_c;
-	int max_l;
-	t_p *output;
+	int	y;
+	int	x;
+	t_p	p_xy;
+	t_p	*output;
 
-	max_c = data->info_table.max_c;
-	max_l = data->info_table.max_l;
-
-	output =(t_p *)malloc((max_l * max_c) * sizeof(t_p));
-
+	output = (t_p *)malloc((data->info_table.max_l * data->info_table.max_c)
+			* sizeof(t_p));
 	y = 0;
-	while (y < max_l)
+	while (y < data->info_table.max_l)
 	{
 		x = 0;
-		while (x < max_c)
+		while (x < data->info_table.max_c)
 		{
-			output[x + y * max_c].x = 
-					input[x + y * max_c].x * data->vu_i.x
-				+ 	input[x + y * max_c].y * data->vu_j.x
-				+ 	input[x + y * max_c].z * data->vu_k.x;
-			output[x + y * max_c].y = 
-					input[x + y * max_c].x * data->vu_i.y
-				+ 	input[x + y * max_c].y * data->vu_j.y
-				+ 	input[x + y * max_c].z * data->vu_k.y;
+			p_xy = (t_p){.x = x, .y = y};
+			fct_1(p_xy, output, input, data);
 			x++;
 		}	
 		y++;
 	}
-
 	return (output);
+}
+
+/* ************************************************************************** */
+static void	fct_1(t_p p_xy, t_p *output, t_p *input, t_data *data)
+{
+	int	max_c;
+	int	max_l;
+	int	y;
+	int	x;
+
+	x = p_xy.x;
+	y = p_xy.y;
+	max_c = data->info_table.max_c;
+	max_l = data->info_table.max_l;
+	output[x + y * max_c].x
+		= input[x + y * max_c].x * data->vu_i.x
+		+ input[x + y * max_c].y * data->vu_j.x
+		+ input[x + y * max_c].z * data->vu_k.x;
+	output[x + y * max_c].y
+		= input[x + y * max_c].x * data->vu_i.y
+		+ input[x + y * max_c].y * data->vu_j.y
+		+ input[x + y * max_c].z * data->vu_k.y;
 }

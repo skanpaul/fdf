@@ -12,24 +12,21 @@
 #include "main.h"
 
 /* ************************************************************************** */
-t_p *trans_rot_x (t_p *input, t_data *data, double alpha)
+t_p	*trans_rot_x(t_p *input, t_data *data, double alpha)
 {
-	double cos_alpha;
-	double sin_alpha;
-	int x;
-	int y;
-	int max_c;
-	int max_l;
-	t_p *output;
+	double	cos_alpha;
+	double	sin_alpha;
+	int		x;
+	int		y;
+	int		max_c;
+	int		max_l;
+	t_p		*output;
 
 	max_c = data->info_table.max_c;
 	max_l = data->info_table.max_l;
-
 	cos_alpha = cos(alpha);
 	sin_alpha = sin(alpha);
-
-	output =(t_p *)malloc((max_l * max_c) * sizeof(t_p));
-
+	output = (t_p *)malloc((max_l * max_c) * sizeof(t_p));
 	y = 0;
 	while (y < max_l)
 	{
@@ -37,17 +34,15 @@ t_p *trans_rot_x (t_p *input, t_data *data, double alpha)
 		while (x < max_c)
 		{
 			output[x + y * max_c].x = input[x + y * max_c].x;
-			output[x + y * max_c].y = 
-					nearbyint(input[x + y * max_c].y * cos_alpha)
-				+ 	nearbyint(input[x + y * max_c].z * (-sin_alpha));
-
-			output[x + y * max_c].z = 
-					nearbyint(input[x + y * max_c].y * sin_alpha)
-				+ 	nearbyint(input[x + y * max_c].z * cos_alpha);
+			output[x + y * max_c].y
+				= nearbyint(input[x + y * max_c].y * cos_alpha)
+				+ nearbyint(input[x + y * max_c].z * (-sin_alpha));
+			output[x + y * max_c].z
+				= nearbyint(input[x + y * max_c].y * sin_alpha)
+				+ nearbyint(input[x + y * max_c].z * cos_alpha);
 			x++;
 		}	
 		y++;
 	}
-
 	return (output);
 }
