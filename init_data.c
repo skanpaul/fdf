@@ -12,7 +12,7 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void init_data(t_data *data)
+void	init_data(t_data *data)
 {
 	data->coef = 1;
 	data->coef_x = 1;

@@ -12,17 +12,17 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void init_vector_unit_iso(t_data *data)
+void	init_vector_unit_iso(t_data *data)
 {
-	data->vu_i = (t_p ){.x = 2, 	.y = 1, 	.z = 0};
-	data->vu_j = (t_p ){.x = -2, 	.y = 1, 	.z = 0};
-	data->vu_k = (t_p ){.x = 0, 	.y = -1, 	.z = 0};
+	data->vu_i = (t_p){.x = 2, .y = 1, .z = 0};
+	data->vu_j = (t_p){.x = -2, .y = 1, .z = 0};
+	data->vu_k = (t_p){.x = 0, .y = -1, .z = 0};
 }
 
 /* ************************************************************************** */
-void 	init_vector_unit_standard(t_data *data)
+void	init_vector_unit_standard(t_data *data)
 {
-	data->vu_i = (t_p ){.x = 1, 	.y = 0, 	.z = 0};
-	data->vu_j = (t_p ){.x = -1, 	.y = 1, 	.z = 0};
-	data->vu_k = (t_p ){.x = 0, 	.y = -1, 	.z = 0};
+	data->vu_i = (t_p){.x = 1, .y = 0, .z = 0};
+	data->vu_j = (t_p){.x = -1, .y = 1, .z = 0};
+	data->vu_k = (t_p){.x = 0, .y = -1, .z = 0};
 }

@@ -30,6 +30,8 @@
 # define MLX_ERROR 1
 # define SCREEN_OVERFLOW 1
 # define ERROR_GET_INFO_TABLE 1
+# define ERROR_COLUMN_AMOUNT 1
+
 /* ************************************************************************** */
 int		init_mlx (t_data *data);
 

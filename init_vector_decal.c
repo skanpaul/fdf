@@ -12,13 +12,12 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void init_vector_decal(t_data *data)
+void	init_vector_decal(t_data *data)
 {
-	int x_decal;
-	int y_decal;
+	int	x_decal;
+	int	y_decal;
 
 	x_decal = W_WIDTH / 2;
 	y_decal = 100;
-
 	data->decal = (t_p){.x = x_decal, .y = y_decal};
 }

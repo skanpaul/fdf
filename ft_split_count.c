@@ -12,15 +12,14 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int ft_split_count(char **split_table)
+int	ft_split_count(char **split_table)
 {
-	int i;
+	int	i;
 
-	if(!split_table)
+	if (!split_table)
 		return (0);
 	i = 0;
-	while(split_table[i] != NULL)
+	while (split_table[i] != NULL)
 		i++;
 	return (i);
 }
-

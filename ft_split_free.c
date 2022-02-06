@@ -12,11 +12,11 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void ft_split_free(char **split_table)
+void	ft_split_free(char **split_table)
 {
-	int i;
+	int	i;
 
-	if(!split_table)
+	if (!split_table)
 		return ;
 	i = 0;
 	while (split_table[i] != NULL)
@@ -26,4 +26,3 @@ void ft_split_free(char **split_table)
 	}
 	free(split_table);
 }
-

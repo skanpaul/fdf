@@ -12,20 +12,20 @@
 #include "main.h"
 
 /* ************************************************************************** */
-int get_info_table(t_file *file, t_it *info_table)
+int	get_info_table(t_file *file, t_it *info_table)
 {
+	char	**split;
+	char	*line;
+
 	info_table->max_c = 0;
 	info_table->max_l = 0;
-	char **split;
-	char *line;
-	
 	file->fd = open(file->name, O_RDONLY);
 	if (file->fd == -1)
 		return (ERROR_GET_INFO_TABLE);
 	while (1)
 	{
 		line = get_next_line(file->fd);
-		if(line == NULL)
+		if (line == NULL)
 			break ;
 		if (info_table->max_l == 0)
 		{
