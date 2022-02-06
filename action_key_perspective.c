@@ -12,19 +12,16 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void action_key_perspective(int key, t_data *data)
+void	action_key_perspective(int key, t_data *data)
 {
-	/* ----------------------------------------------------- */
 	if (key == KEY_K)
 	{
 		init_vector_unit_standard(data);
 		rendering(data->xyz, data);
 	}
-	/* ----------------------------------------------------- */
 	if (key == KEY_L)
 	{
 		init_vector_unit_iso(data);
 		rendering(data->xyz, data);
 	}
-	/* ----------------------------------------------------- */
 }

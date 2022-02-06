@@ -12,42 +12,22 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void action_key_rotation(int key, t_data *data)
+void	action_key_rotation(int key, t_data *data)
 {
-	int inc;
-	
-	inc = 5;
-	/* ---------------------------------------------- Z-axis */
+	int	inc;
+
+	inc = 2;
 	if (key == KEY_X)
-	{
 		data->alpha_z += inc * (2 * M_PI / 360);
-		rendering(data->xyz, data);
-	}
 	if (key == KEY_Z)
-	{
 		data->alpha_z -= inc * (2 * M_PI / 360);
-		rendering(data->xyz, data);	
-	}
-	/* ---------------------------------------------- X-axis */
 	if (key == KEY_C)
-	{
 		data->alpha_x += inc * (2 * M_PI / 360);
-		rendering(data->xyz, data);
-	}
 	if (key == KEY_V)
-	{
 		data->alpha_x -= inc * (2 * M_PI / 360);
-		rendering(data->xyz, data);	
-	}
-	/* ---------------------------------------------- Y-axis */
 	if (key == KEY_B)
-	{
 		data->alpha_y += inc * (2 * M_PI / 360);
-		rendering(data->xyz, data);
-	}
 	if (key == KEY_N)
-	{
 		data->alpha_y -= inc * (2 * M_PI / 360);
-		rendering(data->xyz, data);	
-	}
+	rendering(data->xyz, data);
 }

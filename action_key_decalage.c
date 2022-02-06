@@ -12,31 +12,26 @@
 #include "main.h"
 
 /* ************************************************************************** */
-void action_key_decalage(int key, t_data *data)
+void	action_key_decalage(int key, t_data *data)
 {
-	/* ----------------------------------------------------- */
 	if (key == KEY_ARROW_UP)
 	{
 		data->decal.y -= 20;
 		rendering(data->xyz, data);
 	}
-	/* ----------------------------------------------------- */
 	if (key == KEY_ARROW_DOWN)
 	{
 		data->decal.y += 20;
-		rendering(data->xyz, data);		
+		rendering(data->xyz, data);
 	}
-	/* ----------------------------------------------------- */
 	if (key == KEY_ARROW_LEFT)
 	{
 		data->decal.x -= 20;
 		rendering(data->xyz, data);
 	}
-	/* ----------------------------------------------------- */
 	if (key == KEY_ARROW_RIGHT)
 	{
 		data->decal.x += 20;
-		rendering(data->xyz, data);		
+		rendering(data->xyz, data);
 	}
-	/* ----------------------------------------------------- */
 }
