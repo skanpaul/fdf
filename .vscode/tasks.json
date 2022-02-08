@@ -22,7 +22,8 @@
 				"-framework",
 				"AppKit",
 				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}"
+				// "${fileDirname}/${fileBasenameNoExtension}"
+				"${fileDirname}/fdf"
 			],
 			"options": {
 				"cwd": "${fileDirname}"

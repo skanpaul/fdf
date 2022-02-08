@@ -3,9 +3,7 @@
 		"libft.*": true,
 		"man_macos/": true,
 		"*.o": true,
-		"test_maps": true,
-		"do_z_table_old.c": true,	
-		"do_xyz_table_old.c": true	
+		"test_maps": true
 	},
 	"explorer.sortOrder": "type",
 	"files.associations": {
@@ -21,6 +19,8 @@
 		"string_view": "c",
 		"unordered_map": "c",
 		"vector": "c",
-		"main.h": "c"
+		"main.h": "c",
+		"structure.h": "c",
+		"libft.h": "c"
 	}
 }

@@ -12,42 +12,55 @@
 #include "main.h"
 
 /* ************************************************************************** */
-t_p *trans_rot_z (t_p *input, t_data *data, double alpha)
+static void	transformation(t_data *data);
+
+/* ************************************************************************** */
+t_p	*trans_rot_z(t_p *input, t_data *data, double alpha)
 {
-	double cos_alpha;
-	double sin_alpha;
-	int x;
-	int y;
-	int max_c;
-	int max_l;
-	t_p *output;
+	int	x;
+	int	y;
+	int	max_c;
+	int	max_l;
 
 	max_c = data->info_table.max_c;
 	max_l = data->info_table.max_l;
-
-	cos_alpha = cos(alpha);
-	sin_alpha = sin(alpha);
-
-	output =(t_p *)malloc((max_l * max_c) * sizeof(t_p));
-
+	data->cos_alpha = cos(alpha);
+	data->sin_alpha = sin(alpha);
+	data->output = (t_p *)malloc((max_l * max_c) * sizeof(t_p));
+	data->input = input;
 	y = 0;
 	while (y < max_l)
 	{
 		x = 0;
 		while (x < max_c)
 		{
-			output[x + y * max_c].x = 
-					nearbyint(input[x + y * max_c].x * cos_alpha)
-				+ 	nearbyint(input[x + y * max_c].y * (-sin_alpha));
-			output[x + y * max_c].y = 
-					nearbyint(input[x + y * max_c].x * sin_alpha)
-				+ 	nearbyint(input[x + y * max_c].y * cos_alpha);
-			output[x + y * max_c].z = 
-					input[x + y * max_c].z;
+			data->x = x;
+			data->y = y;
+			transformation(data);
 			x++;
 		}	
 		y++;
 	}
+	return (data->output);
+}
 
-	return (output);
+/* ************************************************************************** */
+static void	transformation(t_data *data)
+{
+	int	x;
+	int	y;
+	int	max_c;
+	int	max_l;
+
+	x = data->x;
+	y = data->y;
+	max_c = data->info_table.max_c;
+	max_l = data->info_table.max_l;
+	data->output[x + y * max_c].x
+		= nearbyint(data->input[x + y * max_c].x * data->cos_alpha)
+		+ nearbyint(data->input[x + y * max_c].y * (-data->sin_alpha));
+	data->output[x + y * max_c].y
+		= nearbyint(data->input[x + y * max_c].x * data->sin_alpha)
+		+ nearbyint(data->input[x + y * max_c].y * data->cos_alpha);
+	data->output[x + y * max_c].z = data->input[x + y * max_c].z;
 }

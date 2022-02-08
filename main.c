@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	init_data(&data);
 	rendering(data.xyz, &data);
 	mlx_mouse_hook(data.win_ptr, action_mouse, (void *)&data);
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, action_key, &data);
+	mlx_key_hook(data.win_ptr, action_key, (void *)&data);
 	mlx_loop(data.mlx_ptr);
 	return (0);
 }
