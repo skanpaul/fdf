@@ -18,7 +18,10 @@ int	main(int argc, char **argv)
 	t_img	img;
 
 	if (argc != 2)
+	{
+		ft_printf("Nombre d'argument INCORRECT\n");
 		return (-1);
+	}
 	data.file.name = argv[1];
 	data.xyz = get_data_from_file(&(data.file), &(data.info_table));
 	if (data.xyz == NULL)

@@ -3,7 +3,7 @@
 		"libft.*": true,
 		"man_macos/": true,
 		"*.o": true,
-		"test_maps": true
+		"test_maps": false
 	},
 	"explorer.sortOrder": "type",
 	"files.associations": {
